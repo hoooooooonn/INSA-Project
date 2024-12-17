@@ -1,0 +1,135 @@
+@import
+	url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@font-face {
+    font-family: 'SeoulgM';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulHangangM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  background-color: #76d7ea;
+  font-family: "Lato", sans-serif;
+}
+
+h2 {
+  color: #000;
+  text-align: center;
+  font-size: 5em;
+  margin: 20px 0;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+.warpper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0px 2px;
+  background: #32557f;
+  display: inline-block;
+  color: #fff;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+  font-family: "Do Hyeon", sans-serif;
+  transition: background-color 0.3s, box-shadow 0.3s; /* 색상 및 그림자 변화 애니메이션 */
+}
+
+.tab:hover {
+  background-color: #00b0ff; /* hover 시 배경색을 하늘색으로 변경 */
+  box-shadow: 0 0.8rem 1rem #00b0ff; /* hover 시 그림자 효과 */
+}
+
+/* 탭이 활성화 되었을 때 (선택된 탭) */
+.tab.active {
+  background-color: #007bb5; /* 선택된 탭은 진한 파란색 배경 */
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+
+.panels {
+  background: #fff;
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.2);
+  min-height: 300px;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.panel {
+  display: none;
+  animation: fadein 0.8s;
+    padding: 20px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 4em; /* 글자 크기 조정 */
+  padding: 0;
+  color: white;
+  text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+    0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+    0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+    -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
+  font-family: 'Luckiest Guy', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel button-container {
+  display: flex;
+  justify-content: space-between; /* 버튼들을 양끝으로 정렬 */
+  gap: 10px; /* 버튼 사이에 간격을 주기 위해 */
+}
+
+button {
+  width: 48%; /* 버튼의 너비를 적당히 조절 */
+  padding: 12px;
+  background-color: #00b0ff; /* 하늘색 버튼 */
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0094cc; /* hover 시 어두운 하늘색 */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;  /* 각 input 사이에 여백을 추가 */
+  border: 2px solid #a3c8e5; /* 하늘색 경계선 */
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #e3f2fd; /* 연한 하늘색 배경 */
+  transition: all 0.3s ease;  /* hover 시 애니메이션 추가 */
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bb5; /* 포커스 시 진한 파란색 */
+  background-color: #bbdefb; /* 포커스 시 밝은 하늘색 */
+}
+
+.radio {
+  display: none;
+}
