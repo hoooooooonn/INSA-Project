@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.min.edu.repository.EmpSelectDaoImpl">
+<sql id = "all">
+	SELECT EMP_NAME, JOB, TEAM, EMP_ID
+		FROM EMP
+</sql>
+
+<resultMap type="EmpVo" id="bank">
+	<result column="BANK_NAME" property="emp_name"/>
+</resultMap>
+
+
+
+	<select id="select02" resultType="EmpVo">
+		<include refid="all"/>
+		WHERE EMP_NAME = #{emp_name}
+	</select>
+	
+	
+	<select id="selectEmpId" resultType="java.lang.Integer">
+		SELECT EMP_ID
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	<select id="selectEmpName" resultType="java.lang.String">
+		SELECT EMP_NAME
+			FROM EMP
+			WHERE EMP_ID = #{x}
+	</select>
+	<select id="selectJob" resultType="java.lang.String">
+		SELECT JOB
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	<select id="selectTeam" resultType="java.lang.String">
+		SELECT TEAM
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	<select id="selectPosition" resultType="java.lang.String">
+		SELECT POSITION
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	<select id="selectEdu" resultType="java.lang.String">
+		SELECT EDU_LEVEL
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	<select id="selectHireY" resultType="java.lang.Integer">
+		SELECT HIRE_YEAR
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	<select id="selectBirth" resultType="java.lang.Integer">
+		SELECT BIRTH
+			FROM EMP
+			WHERE EMP_NAME = #{x}
+	</select>
+	
+	<select id="selId_Name" resultType="EmpVo">
+		<include refid="all"/>
+		WHERE EMP_ID = #{emp_id}
+		AND EMP_NAME = #{emp_name}
+	
+	</select>
+	
+	<select id="selId_Bank" parameterType="java.util.map" resultMap="bank">
+		SELECT EMP_ID 사원번호, BANK_NAME 은행이름
+			FROM SALARY
+			WHERE SALARY_ACC = #{pid}
+	
+	</select>
+	
+
+	
+	
+	
+	
+	
+</mapper>
