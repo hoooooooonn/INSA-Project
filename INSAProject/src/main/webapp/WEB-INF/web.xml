@@ -46,6 +46,24 @@
 		<servlet-name>teachUpdate</servlet-name>
 		<url-pattern>/teachUpdateServlet.do</url-pattern>
 	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>manageLec</servlet-name>
+		<servlet-class>com.min.edu.ctrl.manageLecServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>manageLec</servlet-name>
+		<url-pattern>/manageLec.do</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>checkInfo</servlet-name>
+		<servlet-class>com.min.edu.ctrl.checkInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>checkInfo</servlet-name>
+		<url-pattern>/checkInfo.do</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>
