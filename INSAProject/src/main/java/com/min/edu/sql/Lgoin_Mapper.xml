@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.repository.LoginDaoImpl">
+
+	<select id="getLogin" resultType="LoginDto">
+
+		SELECT TEACH_ID, TEACH_NAME,
+		TEACH_PHONE
+		FROM TEACHER
+		WHERE TEACH_NAME =#{ id }
+		AND
+		SUBSTR(TEACH_PHONE,-4)=#{ pw }
+
+	</select>
+
+	<select id="AllTeacherList" resultType="LoginDto">
+		SELECT TEACH_ID,
+		TEACH_NAME, TEACH_PHONE
+		FROM TEACHER
+	</select>
+
+</mapper>

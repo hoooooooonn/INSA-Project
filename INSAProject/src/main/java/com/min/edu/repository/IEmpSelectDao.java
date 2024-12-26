@@ -19,6 +19,7 @@ public interface IEmpSelectDao {
 	public EmpVo selId_Bank(Map<String, Object> map);
 	
 	public EmpVo select02(String id);
+	
 
 
 }
