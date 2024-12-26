@@ -14,7 +14,7 @@ public class EduManageDaoImpl implements IEduManageDao {
 
 	Logger log = Logger.getLogger(this.getClass());
 	SqlSessionFactory factory = SqlSessionFactoryManager.getFactory();
-	private final String NS = "com.min.edu.model.EduManageDaoImpl.";
+	private final String NS = "com.min.edu.repository.EduManageDaoImpl.";
 	
 	
 	@Override

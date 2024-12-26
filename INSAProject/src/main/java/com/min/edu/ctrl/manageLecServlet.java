@@ -1,6 +1,7 @@
 package com.min.edu.ctrl;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,15 +38,19 @@ public class manageLecServlet extends HttpServlet {
 		System.out.printf("%s, %s, %s \n" , role1, role2, search);
 		
 		
-//		IEduManageDao dao = new EduManageDaoImpl();
-//		String role = req.getParameter("role");
-//		List<EduDto> dto = dao.getCheckInfo(role);
-//		
-//		if(dto != null) {
-//			resp.sendRedirect("./checkInfo.do");
-//		} else {
-//			resp.sendRedirect("./manageLec.do");
-//		}
+		IEduManageDao dao = new EduManageDaoImpl();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("search", search);
+		map.put("role1", role1);
+		map.put("role2", role2);
+		
+		List<EduDto> lists = dao.getAllCheck(map);
+		req.setAttribute("lists", lists);
+		req.getRequestDispatcher("WEB-INF/views/manageLec.jsp").forward(req, resp);
+		
+		if(search == null) {
+			resp.sendRedirect("./manageLec.do");
+		}
 		
 	}
 	

@@ -17,6 +17,7 @@
 %>
 <body>
 <form action="./manageLec.do" method="post">
+<h1>수업관리</h1>
 <table>
     <tr>
         <td>

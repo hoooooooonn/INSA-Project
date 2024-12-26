@@ -5,13 +5,14 @@
 	<!-- <properties resource="oracle.properties" /> -->
 
 	<!-- 로그인 테스트를위해 -->
-	<properties resource="LoginTest.properties"></properties>
+	<properties resource="oracle.properties"></properties>
 
 	<typeAliases>
 
 		<!-- 로그인테스트 -->
 		<typeAlias type="com.min.edu.dto.LoginDto"
 			alias="LoginDto" />
+		<typeAlias type="com.min.edu.dto.EduDto" alias="EduDto"/>
 	</typeAliases>
 
 
@@ -31,5 +32,6 @@
 	<mappers>
 <!-- 		<mapper resource="com/min/edu/sql/EMP_mapper.xml" /> -->
 		<mapper resource="com/min/edu/sql/Lgoin_Mapper.xml" />
+		<mapper resource="com/min/edu/sql/EduManage_statement.xml" />
 	</mappers>
 </configuration>
