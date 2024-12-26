@@ -50,8 +50,16 @@ function windowOpen() {
 
 
 function Login(){
-	 location.href="00_ex.html"
+	document.getElementsByTagName
+	document.querySelectorAll('input[name="tab"]').forEach((input, index) => {
+  input.addEventListener('change', function() {
+    if (input.checked) {
+      console.log(`선택된 탭의 인덱스: ${index}`);  // 인덱스를 출력
+    }
+  });
+});
 
 
-
-}
+}/**
+ * 
+ */

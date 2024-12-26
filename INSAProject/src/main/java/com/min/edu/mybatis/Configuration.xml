@@ -2,11 +2,18 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 
-<properties resource="oracle.properties"/>
+	<!-- <properties resource="oracle.properties" /> -->
 
-<typeAliases>
-		<typeAlias type="com.min.edu.vo.EmpVo" alias="EmpVo" />
+	<!-- 로그인 테스트를위해 -->
+	<properties resource="LoginTest.properties"></properties>
+
+	<typeAliases>
+
+		<!-- 로그인테스트 -->
+		<typeAlias type="com.min.edu.dto.LoginDto"
+			alias="LoginDto" />
 	</typeAliases>
+
 
 
 	<environments default="development">
@@ -20,8 +27,9 @@
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
-		<mapper resource="com/min/edu/sql/EMP_mapper.xml"/>	
+<!-- 		<mapper resource="com/min/edu/sql/EMP_mapper.xml" /> -->
+		<mapper resource="com/min/edu/sql/Lgoin_Mapper.xml" />
 	</mappers>
 </configuration>
