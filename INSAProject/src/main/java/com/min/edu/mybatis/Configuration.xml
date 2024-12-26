@@ -13,6 +13,7 @@
 		<typeAlias type="com.min.edu.dto.LoginDto"
 			alias="LoginDto" />
 		<typeAlias type="com.min.edu.dto.EduDto" alias="EduDto"/>
+		<typeAlias type="com.min.edu.dto.StudentDto" alias="StudentDto"/>
 	</typeAliases>
 
 
@@ -33,5 +34,6 @@
 <!-- 		<mapper resource="com/min/edu/sql/EMP_mapper.xml" /> -->
 		<mapper resource="com/min/edu/sql/Lgoin_Mapper.xml" />
 		<mapper resource="com/min/edu/sql/EduManage_statement.xml" />
+		<mapper resource="com/min/edu/sql/Student_Statement.xml"/>
 	</mappers>
 </configuration>

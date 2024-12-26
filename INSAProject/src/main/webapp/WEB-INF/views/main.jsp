@@ -14,7 +14,7 @@
 		<h3>학생</h3>
 		<div>
 			<ul>
-				<li>학생조회</li>
+				<li><a href="./stuListServlet.do">학생조회</a></li>
 			</ul>
 		</div>
 		<h3>강사</h3>
