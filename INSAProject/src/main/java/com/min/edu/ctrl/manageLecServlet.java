@@ -48,9 +48,7 @@ public class manageLecServlet extends HttpServlet {
 		req.setAttribute("lists", lists);
 		req.getRequestDispatcher("WEB-INF/views/manageLec.jsp").forward(req, resp);
 		
-		if(search == null) {
-			resp.sendRedirect("./manageLec.do");
-		}
+
 		
 	}
 	
