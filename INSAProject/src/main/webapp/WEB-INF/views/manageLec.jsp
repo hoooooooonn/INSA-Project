@@ -30,8 +30,8 @@
         <td>
             <select name="role2">
                 <option>전체</option>
-                <option value="STU">학생</option>
-                <option value="TEACH">강사</option>
+                <option value="학생">학생</option>
+                <option value="강사">강사</option>
             </select>
         </td>
         <td>
