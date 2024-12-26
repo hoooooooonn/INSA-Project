@@ -22,6 +22,9 @@
 			<li><a href="./teachListServlet.do">강사조회</a></li>
 		</ul>
 		<h3>수업</h3>
+		<ul>
+			<li><a href="./manageLec.do">수업관리</a></li>
+		</ul>
 		<h3>결재</h3>
 	</div>
 </body>
