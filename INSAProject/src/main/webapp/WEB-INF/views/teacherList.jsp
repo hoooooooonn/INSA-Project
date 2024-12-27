@@ -8,6 +8,24 @@
 <meta charset="UTF-8">
 <title>강사 목록 조회</title>
 <script type="text/javascript" src="./js/teacherlist.js"></script>
+<style>
+.table4 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table4 th, .table4 td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table4 thead {
+    background-color: #f2f2f2;  
+    color: black; 
+}
+</style>
+
 </head>
 <%
 List<LoginDto> lists = (List<LoginDto>) request.getAttribute("teacherList");
