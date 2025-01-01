@@ -1,11 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-<style type="text/css">
+@charset "UTF-8";
 .box{
    width: 300px;
    background: #191919;
@@ -59,25 +52,3 @@
    background: yellow;
    color: black;
 }
-
-
-</style>
-</head>
-<body>
-	<form class="box" action="./loginServlet.do" method="post">
-		<h2>인사 뮤직 아카데미</h2>
-		<div class="warpper">
-
-			<div class="panels">
-				<div class="panel" id="one-panel">
-					<input type="text" name="id" placeholder="ID 입력"> <input
-						type="text" name="pw" placeholder="PW 입력">
-					<input type="submit" value="로그인">
-				</div>
-
-			</div>
-		</div>
-
-	</form>
-</body>
-</html>

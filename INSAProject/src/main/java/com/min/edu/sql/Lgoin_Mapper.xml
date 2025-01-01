@@ -19,4 +19,37 @@
 		FROM TEACHER
 	</select>
 
+	<insert id="InsertTeacher" parameterType="LoginDto">
+		INSERT INTO TEACHER
+		(TEACH_ID, TEACH_NAME, TEACH_PHONE)
+		VALUES(#{ teach_id },#{ teach_name
+		},#{ teach_phone })
+	</insert>
+
+	<!-- 사용자 상세정보 getUserInfo -->
+	<select id="getUserInfo" resultType="LoginDto">
+		SELECT TEACH_ID,
+		TEACH_NAME, TEACH_PHONE
+		FROM TEACHER
+		WHERE TEACH_ID=#{id}
+	</select>
+
+	<!-- 사용자 정보 수정 updateUserInfo -->
+	<insert id="updateUserInfo">
+		UPDATE TEACHER
+		<set> <!-- 프리픽스오버라이딩 set~!!! -->
+			<!-- mybatis는 or/and절을 사용해서 해야한다. -->
+			<if test="name != null and name !=''">TEACH_NAME =#{name},</if> <!-- null이 아니고 빈값이 아닐때~ -->
+			<if test="phone != null and phone !=''">TEACH_PHONE =#{phone},</if>
+			<!-- <if test="email != null">EMAIL =#{email},</if> -->
+		</set>
+		WHERE TEACH_ID=#{id}
+	</insert>
+
+
+	<delete id="delTeacher">
+	DELETE FROM TEACHER
+	WHERE TEACH_ID=#{id}
+	
+	</delete>
 </mapper>

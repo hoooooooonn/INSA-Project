@@ -1,4 +1,4 @@
-package com.min.edu.login;
+package com.min.edu.ctrl;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,9 +37,28 @@ public class TeachAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		log.info("TeachAddServlet POST 강사등록");
 		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8;");
+		
 		String id = request.getParameter("id");
-		String password = request.getParameter("name");
 		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		
+		String params = String.format("%s,%s,%s", id,name,phone);
+		log.info("요청받은 Parameters : " + params);
+		
+		ILoginDao dao = new LoginDaoImpl();
+		LoginDto dto = new LoginDto(name, id, phone);
+		
+		int row = dao.insertTeacher(dto);
+		if(row==1) {
+			response.sendRedirect("./teachListServlet.do");
+		}
+		else {
+			log.info("강사추가실패");
+		}
+
+		
 	}
 
 }
