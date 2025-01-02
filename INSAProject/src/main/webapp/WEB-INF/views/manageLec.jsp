@@ -8,6 +8,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+<style>
+.table4 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table4 th, .table4 td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table4 thead {
+    background-color: #f2f2f2;  
+    color: black; 
+}
+
+</style>
 </head>
 <%
 	List<EduDto> lists = (List<EduDto>)request.getAttribute("lists");
@@ -37,8 +56,9 @@
         </td>
 	</tr> 
 	  </table>
-	  <table>
+	  <table class="table4">
     <tr>
+    <thead>
         <td>SEQ</td>
         <td>수업</td>
         <td>강사이름</td>
@@ -47,6 +67,7 @@
         <td>강사확인</td>
         <td>학생확인</td>
         <td>최종확인</td>
+        </thead>
     </tr>
     	<%
 			for (EduDto dto : lists) {

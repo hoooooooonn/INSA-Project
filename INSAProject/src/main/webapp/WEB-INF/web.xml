@@ -65,6 +65,7 @@
 		<url-pattern>/checkInfo.do</url-pattern>
 	</servlet-mapping>
 	
+
 		<!-- 강사 삭제 -->
 	<servlet>
 		<servlet-name>teachDel</servlet-name>
@@ -74,6 +75,53 @@
 		<servlet-name>teachDel</servlet-name>
 		<url-pattern>/teachDelServlet.do</url-pattern>
 	</servlet-mapping>
+=======
+	<!-- 학생전체조회 -->
+	<servlet>
+		<servlet-name>stuList</servlet-name>
+		<servlet-class>com.min.edu.ctrl.StuListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>stuList</servlet-name>
+		<url-pattern>/stuListServlet.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- 학생상세페이지 -->
+	<servlet>
+		<servlet-name>stuInfo</servlet-name>
+		<servlet-class>com.min.edu.ctrl.StuInfoServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>stuInfo</servlet-name>
+		<url-pattern>/stuInfo.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- 학생정보수정 -->
+	<servlet>
+		<servlet-name>stuModify</servlet-name>
+		<servlet-class>com.min.edu.ctrl.StuModifyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>stuModify</servlet-name>
+		<url-pattern>/stuModifyServlet.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 학생등록 -->
+	<servlet>
+		<servlet-name>regist</servlet-name>
+		<servlet-class>com.min.edu.ctrl.RegistServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>regist</servlet-name>
+		<url-pattern>/registServlet.do</url-pattern>
+	</servlet-mapping>
+	
+
+  
 
 
 </web-app>
