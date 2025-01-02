@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.min.edu.dto.LoginDto;
 
-
 public interface ILoginDao {
 	
 	//로그인 진행
@@ -17,7 +16,13 @@ public interface ILoginDao {
 	// 특정 강사 조회
 
 	//강사추가
+		public int insertTeacher(LoginDto dto);
 
-	//강사 정보 수정
+//		사용자 상세정보	getUserInfo
+		public LoginDto getUserInfo(String seq);
+//		사용자 정보 수정	pudateUserInfo
+		public int pudateUserInfo(LoginDto dto);
 
+		//강사 삭제 
+		public int delTeacher(String teach_id);
 }

@@ -53,8 +53,7 @@ List<LoginDto> lists = (List<LoginDto>) request.getAttribute("teacherList");
 					<td><%=dto.getTeach_name()%></td>
 					<td><%=dto.getTeach_phone()%></td>
 					<th colspan="8" style="text-align: center;">
-					<button onclick="UpdateUser()">수정</button>
-					<button onclick="deleteUser()">삭제</button>
+					<input class="btn btn-success btn-lg" type="button" value="상세보기"> 
 					</th>
 				</tr>
 				<%
@@ -75,5 +74,10 @@ List<LoginDto> lists = (List<LoginDto>) request.getAttribute("teacherList");
 		</table>
 	</div>
 </body>
-
+<script type="text/javascript">
+	document.querySelector("input[type=button]").onclick=function(){
+		console.log("수정화면이동");
+		location.href="./teachUpdateServlet.do"; 
+	}
+</script>
 </html>

@@ -30,5 +30,33 @@ public class LoginDaoImpl implements ILoginDao{
 		return session.selectList(NS+"AllTeacherList");
 	
 	}
+	
+	@Override
+	public int insertTeacher(LoginDto dto) {
+		log.info("강사 추가");
+		SqlSession session = manager.openSession(true);
+		int row = session.insert(NS+"InsertTeacher",dto);
+		return row;
+	}
+	
+	@Override
+	public LoginDto getUserInfo(String seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int pudateUserInfo(LoginDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public int delTeacher(String teach_id) {
+		log.info("강사 삭제");
+		SqlSession session = manager.openSession(true);
+		int row = session.delete(NS+"delTeacher",teach_id);
+		return row;
+	}
 
 }

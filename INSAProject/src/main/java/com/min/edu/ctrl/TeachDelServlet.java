@@ -1,4 +1,4 @@
-package com.min.edu.login;
+package com.min.edu.ctrl;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,21 +14,30 @@ import com.min.edu.dto.LoginDto;
 import com.min.edu.repository.ILoginDao;
 import com.min.edu.repository.LoginDaoImpl;
 
+public class TeachDelServlet extends HttpServlet {
 
-public class TeachListServlet extends HttpServlet {
-
-	private static final long serialVersionUID = -5489967526809011042L;
+	private static final long serialVersionUID = 1L;
 	private Logger log = Logger.getLogger(this.getClass());
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		log.info("UserListServlet GET 요청 사용자 보기");
+
+		log.info("TeachDelServlet 삭제");
+
+		LoginDto dto = (LoginDto) req.getSession().getAttribute("loginDto");
+		// req.getSession().invalidate();
 
 		ILoginDao dao = new LoginDaoImpl();
 		List<LoginDto> lists = dao.getAllTeacher();
-
 		req.setAttribute("teacherList", lists);
-		req.getRequestDispatcher("/WEB-INF/views/teacherList.jsp").forward(req, resp);
+		
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println(dto.getTeach_id());
+//		int row = dao.delTeacher(dto.getTeach_id());
+//		if (row == 1) {
+//			req.getRequestDispatcher("/WEB-INF/views/teacherList.jsp").forward(req, resp);
+//		}
+
 	}
 
 }

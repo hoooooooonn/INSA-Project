@@ -1,4 +1,4 @@
-package com.min.edu.login;
+package com.min.edu.ctrl;
 
 import java.io.IOException;
 import java.util.HashMap;
