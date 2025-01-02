@@ -20,7 +20,7 @@ public class checkInfoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		IEduManageDao dao = new EduManageDaoImpl();
 		String name = req.getParameter("role");
-		List<EduDto> lists = dao.getCheckInfo(name);
+		EduDto lists = dao.getCheckInfo(name);
 		req.setAttribute("lists", lists);
 		req.getRequestDispatcher("WEB-INF/views/checkInfo.jsp").forward(req, resp);
 	}

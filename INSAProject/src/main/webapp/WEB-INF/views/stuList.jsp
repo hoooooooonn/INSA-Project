@@ -24,6 +24,13 @@
     color: black; 
 }
 </style>
+
+<script type="text/javascript">
+   function regist() {
+      window.location.href = './registServlet.do';
+   }
+</script>
+
 </head>
 <%
     // 학생 목록을 request 속성에서 가져오기
@@ -35,14 +42,16 @@
 
 <h2>학생 목록</h2>
 
+
 <!-- 검색 폼 -->
 <form action="./stuListServlet.do" method="get">
     <label for="searchName">학생 이름: </label>
     <input type="text" id="searchName" name="searchName" value="<%= searchName != null ? searchName : "" %>" />
     <button type="submit">검색</button>
     <button type="submit">수정</button>
-    <button type="submit">등록</button>
+    <button type="submit" onclick="regist()">등록</button>
 </form>
+
 
 <br />
 

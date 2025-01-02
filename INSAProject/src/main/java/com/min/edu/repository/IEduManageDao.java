@@ -21,6 +21,6 @@ public interface IEduManageDao {
 	
 	public List<EduDto> getAllCheck(Map<String, Object> map);
 	
-	public List<EduDto> getCheckInfo(String name);
+	public EduDto getCheckInfo(String seq);
 
 }
