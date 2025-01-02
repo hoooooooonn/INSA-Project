@@ -10,7 +10,7 @@
 	<!-- 로그인 로그아웃 -->
 	<servlet>
 		<servlet-name>login</servlet-name>
-		<servlet-class>com.min.edu.login.LoginServlet</servlet-class>
+		<servlet-class>com.min.edu.ctrl.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
@@ -20,7 +20,7 @@
 	<!-- 강사 전체 조회 -->
 	<servlet>
 		<servlet-name>teachList</servlet-name>
-		<servlet-class>com.min.edu.login.TeachListServlet</servlet-class>
+		<servlet-class>com.min.edu.ctrl.TeachListServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>teachList</servlet-name>
@@ -30,7 +30,7 @@
 	<!-- 강사 추가 -->
 	<servlet>
 		<servlet-name>teachAdd</servlet-name>
-		<servlet-class>com.min.edu.login.TeachAddServlet</servlet-class>
+		<servlet-class>com.min.edu.ctrl.TeachAddServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>teachAdd</servlet-name>
@@ -40,7 +40,7 @@
 	<!-- 강사 수정 -->
 	<servlet>
 		<servlet-name>teachUpdate</servlet-name>
-		<servlet-class>com.min.edu.login.TeachUpdateServlet</servlet-class>
+		<servlet-class>com.min.edu.ctrl.TeachUpdateServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>teachUpdate</servlet-name>
@@ -65,6 +65,17 @@
 		<url-pattern>/checkInfo.do</url-pattern>
 	</servlet-mapping>
 	
+
+		<!-- 강사 삭제 -->
+	<servlet>
+		<servlet-name>teachDel</servlet-name>
+		<servlet-class>com.min.edu.ctrl.TeachDelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teachDel</servlet-name>
+		<url-pattern>/teachDelServlet.do</url-pattern>
+	</servlet-mapping>
+=======
 	<!-- 학생전체조회 -->
 	<servlet>
 		<servlet-name>stuList</servlet-name>
@@ -109,6 +120,7 @@
 		<url-pattern>/registServlet.do</url-pattern>
 	</servlet-mapping>
 	
+
 	<servlet>
 		<servlet-name>updateChk</servlet-name>
 		<servlet-class>com.min.edu.ctrl.UpdateChkServlet</servlet-class>
@@ -118,5 +130,6 @@
 		<url-pattern>/updateChk.do</url-pattern>
 	</servlet-mapping>
 	
+
 
 </web-app>

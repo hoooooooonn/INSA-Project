@@ -42,6 +42,7 @@
 
 <h2>학생 목록</h2>
 
+
 <!-- 검색 폼 -->
 <form action="./stuListServlet.do" method="get">
     <label for="searchName">학생 이름: </label>
@@ -50,6 +51,7 @@
     <button type="submit">수정</button>
     <button type="submit" onclick="regist()">등록</button>
 </form>
+
 
 <br />
 

@@ -18,6 +18,7 @@ import com.min.edu.repository.StudentDaoImpl;
 
 public class StuListServlet extends HttpServlet {
 
+
    private static final long serialVersionUID = -3394895074224635505L;
    private Logger log = Logger.getLogger(this.getClass());
 
@@ -51,5 +52,6 @@ public class StuListServlet extends HttpServlet {
        req.setAttribute("lists", lists);
        req.getRequestDispatcher("/WEB-INF/views/stuList.jsp").forward(req, resp);
    }
+
 
 }
