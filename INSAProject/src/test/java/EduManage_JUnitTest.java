@@ -36,14 +36,14 @@ public class EduManage_JUnitTest {
 	}
 	
 	@SuppressWarnings("serial")
-//	@Test
+	@Test
 	public void updateConf() {
 		Map<String, Object> map = new HashMap<String, Object>() {
 			{
 				put("teach_conf", "Y");
 				put("stu_conf", "Y");
 				put("confirm", "Y");
-				put("seq", 6);
+				put("seq", 9);
 			}
 		};
 		int cnt = dao.updateConf(map);
@@ -71,7 +71,7 @@ public class EduManage_JUnitTest {
 
 	}
 	
-	@Test
+//	@Test
 	public void getAllCheck() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("search", "김지원");
@@ -84,9 +84,9 @@ public class EduManage_JUnitTest {
 	
 //	@Test
 	public void getCheckInfo() {
-		String name = "김지원";
-		List<EduDto> list = dao.getCheckInfo(name);
-		assertNotEquals(0, list.size());
+		String seq = "seq";
+		EduDto dto = dao.getCheckInfo(seq);
+		assertNotEquals(0, dto);
 	}
 	
 	

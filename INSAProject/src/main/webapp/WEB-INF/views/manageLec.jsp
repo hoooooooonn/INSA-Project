@@ -62,13 +62,35 @@
         <td><%=dto.getTeach_conf() %></td>
         <td><%=dto.getStu_conf() %></td>
         <td><%=dto.getConfirm() %></td>
-
+		<td>
+			<button type="button">수정</button>
+		</td>
     </tr>
+    
+    
     
 			<%
 			}
 		%>
+		
+		<tfoot>
+			<tr>
+				<th colspan="8">
+					<button type="button" onclick="history.back(-1)">이전화면이동</button>
+				</th>
+			</tr>
+		</tfoot>
   </table>
   </form>
 </body>
+<script type="text/javascript">
+	var btns = document.querySelectorAll("button");
+	for (let i = 0 ; i < btns.length ; i++){
+		btns[i].onclick = function (){
+			var seq = this.parentNode.parentNode.children[0].textContent;
+			console.log("선택된 row의 seq값", seq)
+			location.href="./updateChk.do?seq="+seq;
+		}
+	}
+</script>
 </html>

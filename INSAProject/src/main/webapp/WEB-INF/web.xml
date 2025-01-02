@@ -109,6 +109,14 @@
 		<url-pattern>/registServlet.do</url-pattern>
 	</servlet-mapping>
 	
-
+	<servlet>
+		<servlet-name>updateChk</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UpdateChkServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateChk</servlet-name>
+		<url-pattern>/updateChk.do</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>
