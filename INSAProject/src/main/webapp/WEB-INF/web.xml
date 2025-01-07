@@ -75,7 +75,7 @@
 		<servlet-name>teachDel</servlet-name>
 		<url-pattern>/teachDelServlet.do</url-pattern>
 	</servlet-mapping>
-=======
+
 	<!-- 학생전체조회 -->
 	<servlet>
 		<servlet-name>stuList</servlet-name>

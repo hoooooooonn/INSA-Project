@@ -46,7 +46,7 @@
         </div>
 
         <!-- 로그아웃 버튼 -->
-        <a href="./logout.do" class="btn">로그아웃</a>
+        <a href="./loginServlet.do" class="btn">로그아웃</a>
     </div>
 </body>
 </html>
