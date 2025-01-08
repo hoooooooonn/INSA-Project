@@ -59,6 +59,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			session.setAttribute("loginDto", logindto);
 			log.info("로그인성공" + logindto);
+			req.setAttribute("dto", logindto);
 			req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);
 			
 		}else {
