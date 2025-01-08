@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -26,12 +27,31 @@ public class TeachListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		log.info("UserListServlet GET 요청 사용자 보기");
-
+		
+		HttpSession session = req.getSession();
+		LoginDto dto = (LoginDto)session.getAttribute("loginDto");
+		
 		ILoginDao dao = new LoginDaoImpl();
 		List<LoginDto> lists = dao.getAllTeacher();
 		
+		//정렬
+		Collections.sort(lists,new Comparator<LoginDto>() {
+
+			@Override
+			public int compare(LoginDto o1, LoginDto o2) {
+				
+				int id1 = Integer.parseInt(o1.getTeach_id());
+			    int id2 = Integer.parseInt(o2.getTeach_id());
+			    
+			    return Integer.compare(id1, id2);
+			}
+			
+		});
+		
+		
 
 		req.setAttribute("teacherList", lists);
+		req.setAttribute("dto", dto);
 		req.getRequestDispatcher("/WEB-INF/views/teacherList.jsp").forward(req, resp);
 	}
 	

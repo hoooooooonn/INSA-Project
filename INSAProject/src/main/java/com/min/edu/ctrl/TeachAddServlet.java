@@ -15,10 +15,6 @@ import com.min.edu.dto.LoginDto;
 import com.min.edu.repository.ILoginDao;
 import com.min.edu.repository.LoginDaoImpl;
 
-/**
- * Servlet implementation class TeachAddServlet
- */
-@WebServlet("/TeachAddServlet")
 public class TeachAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Logger log = Logger.getLogger(this.getClass());

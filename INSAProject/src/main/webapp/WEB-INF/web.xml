@@ -120,7 +120,15 @@
 		<url-pattern>/registServlet.do</url-pattern>
 	</servlet-mapping>
 	
-
+	<!-- 메인페이지 이동 -->
+	<servlet>
+		<servlet-name>mainpage</servlet-name>
+		<servlet-class>com.min.edu.ctrl.mainpageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mainpage</servlet-name>
+		<url-pattern>/mainpageServlet.do</url-pattern>
+	</servlet-mapping>
   
 
 

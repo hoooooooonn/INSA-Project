@@ -31,19 +31,19 @@
 		SELECT TEACH_ID,
 		TEACH_NAME, TEACH_PHONE
 		FROM TEACHER
-		WHERE TEACH_ID=#{id}
+		WHERE TEACH_ID=#{teach_id}
 	</select>
 
 	<!-- 사용자 정보 수정 updateUserInfo -->
-	<insert id="updateUserInfo">
+	<insert id="updateTeacher">
 		UPDATE TEACHER
 		<set> <!-- 프리픽스오버라이딩 set~!!! -->
 			<!-- mybatis는 or/and절을 사용해서 해야한다. -->
-			<if test="name != null and name !=''">TEACH_NAME =#{name},</if> <!-- null이 아니고 빈값이 아닐때~ -->
-			<if test="phone != null and phone !=''">TEACH_PHONE =#{phone},</if>
+			<if test="teach_name != null and teach_name !=''">TEACH_NAME =#{teach_name},</if> <!-- null이 아니고 빈값이 아닐때~ -->
+			<if test="teach_phone != null and teach_phone !=''">TEACH_PHONE =#{teach_phone},</if>
 			<!-- <if test="email != null">EMAIL =#{email},</if> -->
 		</set>
-		WHERE TEACH_ID=#{id}
+		WHERE TEACH_ID=#{teach_id}
 	</insert>
 
 

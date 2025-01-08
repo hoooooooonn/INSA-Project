@@ -6,9 +6,11 @@
     <meta charset="UTF-8">
     <title>정보수정</title>
     <link rel="stylesheet" href="./css/teacherupdate.css">
+    
+    
 </head>
 <%
-    LoginDto dto = (LoginDto) request.getAttribute("teacherList");
+    LoginDto dto = (LoginDto) request.getAttribute("teacherInfo");
 %>
 <body>
 
@@ -25,16 +27,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" name="teach_id" value="<%=dto%>" readonly></td>
-                        <td><input type="text" name="teach_name" value="<%=dto%>"></td>
-                        <td><input type="text" name="teach_phone" value="<%=dto%>"></td>
+                        <td><input type="text" name="teach_id" value="<%=dto.getTeach_id()%>" readonly></td>
+                        <td><input type="text" name="teach_name" value="<%=dto.getTeach_name()%>"></td>
+                        <td><input type="text" name="teach_phone" value="<%=dto.getTeach_phone()%>"></td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3" class="text-center">
+                        <td colspan="4" class="text-center">
                             <input type="submit" value="수정" class="btn btn-submit">
                             <input type="reset" value="초기화" class="btn btn-reset">
+                            <input type="button" value="삭제" onclick="delTeacher()" class="btn btn-danger">
                             <input type="button" value="뒤로가기" class="btn btn-back" onclick="history.back(-1)">
                         </td>
                     </tr>
@@ -44,4 +47,11 @@
     </div>
 
 </body>
+<script type="text/javascript">
+function delTeacher(){
+	location.href="./teachDelServlet.do?id=<%=dto.getTeach_id()%>";
+}
+
+</script>
+
 </html>
