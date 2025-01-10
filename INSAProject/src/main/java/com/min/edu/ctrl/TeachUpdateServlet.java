@@ -24,8 +24,8 @@ public class TeachUpdateServlet extends HttpServlet {
 		String teachId = req.getParameter("id");
 		//홈으로 이동할때 다시 디비 가져와야함 ,, 중간중간 바뀐 정보가 잇을수잇으니 잘못된거 가지고 다니면 안됨
 		ILoginDao dao = new LoginDaoImpl();
-		LoginDto info =  dao.getUserInfo(teachId);
-		req.setAttribute("teacherInfo", info);
+		LoginDto dto =  dao.getUserInfo(teachId);
+		req.setAttribute("dto", dto);
 		req.getRequestDispatcher("/WEB-INF/views/TeacherUpdate.jsp").forward(req, resp);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

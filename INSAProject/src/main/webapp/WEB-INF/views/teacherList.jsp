@@ -1,7 +1,8 @@
-<%@ page import="java.util.List"%>
-<%@ page import="com.min.edu.dto.LoginDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +11,21 @@
 <script type="text/javascript" src="./js/teacherlist.js"></script>
 <link rel="stylesheet" href="./css/teacherlist.css">
 </head>
-<%
-List<LoginDto> lists = (List<LoginDto>) request.getAttribute("teacherList");
-LoginDto ldto = (LoginDto) request.getAttribute("dto");
-%>
+
 <body>
 	<div class="container">
 		<div class="header">
 			<span class="title"><b>강사 전체 목록</b></span>
-			<button class="back-btn" onclick="location.href='./mainpageServlet.do?id=<%=ldto.getTeach_id()%>'">이전페이지</button>
+			<div>
+				<select name="search" calss="search">
+					<option vlaue="id">아이디</option>
+					<option vlaue="name">이름</option>
+					<option vlaue="phone">전화번호</option>
+				</select>
+				<input type="text" name="searchtext">
+				<input type="button" value="검색">
+			</div>
+			<button class="back-btn" onclick="location.href='./mainpageServlet.do?id=${dto.teach_id}'">이전페이지</button>
 		</div>
 		<hr>
 
@@ -32,24 +39,20 @@ LoginDto ldto = (LoginDto) request.getAttribute("dto");
 				</tr>
 			</thead>
 			<tbody>
-				<%
-				for (LoginDto dto : lists) {
-				%>
+			<c:forEach var="dto" items="${lists}" varStatus="vs">
 				<tr>
-					<td><%=dto.getTeach_id()%></td>
-					<td><%=dto.getTeach_name()%></td>
-					<td><%=dto.getTeach_phone()%></td>
+					<td>${dto.teach_id}</td>
+					<td>${dto.teach_name}</td>
+					<td>${dto.teach_phone}</td>
 					<td><button class="detail-btn"
-							onclick="location.href='./teachUpdateServlet.do?id=<%=dto.getTeach_id()%>'">상세보기</button></td>
+							onclick="location.href='./teachUpdateServlet.do?id=${dto.teach_id}'">상세보기</button></td>
 				</tr>
-				<%
-				}
-				%>
+			</c:forEach>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="4" class="text-center">
-						<form action="./teachAddServlet.do>" method="get">
+						<form action="./teachAddServlet.do" method="get">
 							<button type="submit" class="add-btn">강사등록</button>
 						</form>
 					</td>

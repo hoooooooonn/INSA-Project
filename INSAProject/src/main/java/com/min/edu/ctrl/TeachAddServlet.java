@@ -25,7 +25,7 @@ public class TeachAddServlet extends HttpServlet {
 		ILoginDao dao = new LoginDaoImpl();
 		List<LoginDto> lists = dao.getAllTeacher();
 
-		request.setAttribute("teacherList", lists);
+		request.setAttribute("lists", lists);
 		request.getRequestDispatcher("/WEB-INF/views/TeacherAdd.jsp").forward(request, response);
 	}
 

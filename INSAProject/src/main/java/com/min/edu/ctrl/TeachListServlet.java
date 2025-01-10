@@ -50,7 +50,7 @@ public class TeachListServlet extends HttpServlet {
 		
 		
 
-		req.setAttribute("teacherList", lists);
+		req.setAttribute("lists", lists);
 		req.setAttribute("dto", dto);
 		req.getRequestDispatcher("/WEB-INF/views/teacherList.jsp").forward(req, resp);
 	}

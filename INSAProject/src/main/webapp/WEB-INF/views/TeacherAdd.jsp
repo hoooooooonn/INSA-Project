@@ -1,6 +1,7 @@
-<%@ page import="java.util.List"%>
-<%@ page import="com.min.edu.dto.LoginDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,7 @@
     <title>강사 등록</title>
     <link rel="stylesheet" href="./css/teacherAdd.css">
 </head>
-<%
-    List<LoginDto> lists = (List<LoginDto>) request.getAttribute("teacherList");
-%>
 <body>
-
     <div class="container">
         <h2>🎀 신규 강사 등록 🎀</h2>
         <form action="./teachAddServlet.do" method="post" class="form">
@@ -25,10 +22,9 @@
                 <tbody>
                     <tr>
                         <th>아이디</th>
-                        <% int newTeacherId = lists.size() + 1; %>
                         <td>
-                            <input type="text" name="id" value="<%= newTeacherId %>" disabled>
-                            <input type="hidden" name="id" value="<%= newTeacherId %>">
+                            <input type="text" name="id" value="${lists.size()+ 1}" disabled>
+                            <input type="hidden" name="id" value="${lists.size()+ 1}">
                         </td>
                     </tr>
                     <tr>

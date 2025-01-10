@@ -1,5 +1,7 @@
-<%@ page import="com.min.edu.dto.LoginDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +9,8 @@
     <title>정보수정</title>
     <link rel="stylesheet" href="./css/teacherupdate.css">
     
-    
 </head>
-<%
-    LoginDto dto = (LoginDto) request.getAttribute("teacherInfo");
-%>
+
 <body>
 
     <div class="container">
@@ -27,9 +26,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="text" name="teach_id" value="<%=dto.getTeach_id()%>" readonly></td>
-                        <td><input type="text" name="teach_name" value="<%=dto.getTeach_name()%>"></td>
-                        <td><input type="text" name="teach_phone" value="<%=dto.getTeach_phone()%>"></td>
+                        <td><input type="text" name="teach_id" value="${dto.teach_id}" readonly></td>
+                        <td><input type="text" name="teach_name" value="${dto.teach_name}"></td>
+                        <td><input type="text" name="teach_phone" value="${dto.teach_phone}"></td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -49,7 +48,7 @@
 </body>
 <script type="text/javascript">
 function delTeacher(){
-	location.href="./teachDelServlet.do?id=<%=dto.getTeach_id()%>";
+	location.href="./teachDelServlet.do?id=${dto.teach_id}";
 }
 
 </script>
