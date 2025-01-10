@@ -97,3 +97,58 @@ body {
 .text-center {
     text-align: center;
 }
+
+/* Styling for the <select> tag */
+.search {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search:hover {
+    border-color: #3479db;
+}
+
+.search:focus {
+    outline: none;
+    border-color: #3479db;
+    box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
+}
+
+/* Styling for the search input field */
+.header input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.header input[type="text"]:focus {
+    outline: none;
+    border-color: #3479db;
+    box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
+}
+
+/* Styling for the search submit button */
+.header input[type="submit"] {
+    background-color: #3479db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.header input[type="submit"]:hover {
+    background-color: #ff9900;
+}

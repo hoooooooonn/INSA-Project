@@ -17,13 +17,13 @@
 		<div class="header">
 			<span class="title"><b>강사 전체 목록</b></span>
 			<div>
-				<select name="search" calss="search">
-					<option vlaue="id">아이디</option>
-					<option vlaue="name">이름</option>
-					<option vlaue="phone">전화번호</option>
+				<select name="search" class="search">
+					<option value="id">아이디</option>
+					<option value="name">이름</option>
+					<option value="phone">전화번호</option>
 				</select>
 				<input type="text" name="searchtext">
-				<input type="button" value="검색">
+				<input type="submit" value="검색">
 			</div>
 			<button class="back-btn" onclick="location.href='./mainpageServlet.do?id=${dto.teach_id}'">이전페이지</button>
 		</div>

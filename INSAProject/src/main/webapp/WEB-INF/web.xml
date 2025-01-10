@@ -129,7 +129,16 @@
 		<servlet-name>mainpage</servlet-name>
 		<url-pattern>/mainpageServlet.do</url-pattern>
 	</servlet-mapping>
-  
+	
+	<!-- 강사 검색 -->
+	<servlet>
+		<servlet-name>searchTeacher</servlet-name>
+		<servlet-class>com.min.edu.ctrl.SearchTeacherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>searchTeacher</servlet-name>
+		<url-pattern>/searchTeacher.do</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>

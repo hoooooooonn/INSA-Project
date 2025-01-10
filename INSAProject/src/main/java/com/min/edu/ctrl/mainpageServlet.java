@@ -13,11 +13,12 @@ import com.min.edu.dto.LoginDto;
 import com.min.edu.repository.ILoginDao;
 import com.min.edu.repository.LoginDaoImpl;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class mainpageServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private Logger log = Logger.getLogger(this.getClass());
 	
 	
 	@Override
