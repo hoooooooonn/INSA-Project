@@ -119,7 +119,7 @@
 		<servlet-name>regist</servlet-name>
 		<url-pattern>/registServlet.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- 메인페이지 이동 -->
 	<servlet>
 		<servlet-name>mainpage</servlet-name>
@@ -139,6 +139,18 @@
 		<servlet-name>searchTeacher</servlet-name>
 		<url-pattern>/searchTeacher.do</url-pattern>
 	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>updateChk</servlet-name>
+		<servlet-class>com.min.edu.ctrl.UpdateChkServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateChk</servlet-name>
+		<url-pattern>/updateChk.do</url-pattern>
+	</servlet-mapping>
+	
+
 
 
 </web-app>

@@ -26,14 +26,14 @@ SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME , LEC_CNT, TEACH_CONF , STU_CONF
   
 </select>
 
-<update id="updateConf" >
+<update id="updateConf">
 
 UPDATE LECCHECK
 SET TEACH_CONF= #{teach_conf}, STU_CONF= #{stu_conf}, CONFIRM=#{confirm}
 WHERE SEQ=#{seq}
 </update>
 
-<select id="getNotConfirm">
+<select id="getNotConfirm" resultType="EduDto">
 SELECT SEQ, STU_NAME , LEC_NAME, DAY, HOUR, STU_CONF, TEACH_CONF, CONFIRM
   FROM LECCHECK l JOIN PROCESS p 
   USING(SEQ) JOIN STUDENT i
@@ -42,13 +42,13 @@ SELECT SEQ, STU_NAME , LEC_NAME, DAY, HOUR, STU_CONF, TEACH_CONF, CONFIRM
   WHERE CONFIRM = 'N' AND STU_NAME = #{stu_name}
 </select>
 
-<select id="getAllPay">
+<select id="getAllPay" resultType="EduDto">
 	 SELECT SEQ, STU_NAME , AMOUNT, PAYER, PAY_INFO, REG_TYPE , PAY_DATE
 		  FROM STUDENT i JOIN PAY p 
 		  USING(STU_ID)
 </select>
 
-<select id="getPayInfo">
+<select id="getPayInfo" resultType="EduDto">
 SELECT SEQ, STU_NAME , AMOUNT, PAYER, PAY_INFO, REG_TYPE , PAY_DATE
   FROM STUDENT s JOIN PAY p 
   USING(STU_ID)
@@ -90,7 +90,7 @@ SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME, LEC_CNT , TEACH_CONF, STU_CONF, CONF
   </where>
 </select>
 
-<select id="getCheckInfo">
+<select id="getCheckInfo" resultType="EduDto">
 SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME, LEC_CNT , TEACH_CONF, STU_CONF, CONFIRM
   FROM TEACHER t JOIN TEACHNR t2 
   USING(TEACH_ID) JOIN LECTURE l 
@@ -98,7 +98,7 @@ SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME, LEC_CNT , TEACH_CONF, STU_CONF, CONF
   USING (LEC_CODE) JOIN LECCHECK l 
   USING (SEQ) JOIN STUDENT s
   USING (STU_ID)
-  WHERE STU_NAME= #{stu_name}
+  WHERE SEQ= #{seq}
 
 </select>
 

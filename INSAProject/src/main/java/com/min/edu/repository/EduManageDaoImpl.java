@@ -62,9 +62,9 @@ public class EduManageDaoImpl implements IEduManageDao {
 	}
 	
 	@Override
-	public List<EduDto> getCheckInfo(String name) {
+	public EduDto getCheckInfo(String seq) {
 		SqlSession session = factory.openSession();
-		return session.selectList(NS + "getCheckInfo", name);
+		return session.selectOne(NS + "getCheckInfo", seq);
 	}
 	
 }
