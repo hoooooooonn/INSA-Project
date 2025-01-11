@@ -101,3 +101,13 @@ h2 {
 .btn-back:hover {
     background-color: #5a6268;
 }
+
+.btn-danger {
+    background-color: #fc3700;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #bf2c04;
+}
+

@@ -19,9 +19,9 @@ public interface ILoginDao {
 		public int insertTeacher(LoginDto dto);
 
 //		사용자 상세정보	getUserInfo
-		public LoginDto getUserInfo(String seq);
+		public LoginDto getUserInfo(String id);
 //		사용자 정보 수정	pudateUserInfo
-		public int pudateUserInfo(LoginDto dto);
+		public int updateTeachInfo(LoginDto dto);
 
 		//강사 삭제 
 		public int delTeacher(String teach_id);

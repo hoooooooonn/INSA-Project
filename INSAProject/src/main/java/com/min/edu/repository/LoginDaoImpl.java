@@ -40,15 +40,20 @@ public class LoginDaoImpl implements ILoginDao{
 	}
 	
 	@Override
-	public LoginDto getUserInfo(String seq) {
-		// TODO Auto-generated method stub
-		return null;
+	public LoginDto getUserInfo(String id) {
+		log.info("특정 강사 조회");
+		SqlSession session = manager.openSession();
+		LoginDto dto = session.selectOne(NS+"getUserInfo",id);
+		
+		return dto;
 	}
 
 	@Override
-	public int pudateUserInfo(LoginDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateTeachInfo(LoginDto dto) {
+		log.info("특정 강사 정보 수정");
+		SqlSession session = manager.openSession(true);
+		int cnt = session.update(NS+"updateTeacher",dto);
+		return cnt;
 	}
 	
 	@Override

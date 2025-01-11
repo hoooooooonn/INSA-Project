@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.min.edu.dto.LoginDto"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +9,11 @@
     <!-- 사용자 정의 CSS 추가 -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<%
-    LoginDto dto = (LoginDto)request.getAttribute("dto");
-%>
 <body>
     <div class="container">
         <!-- 환영 메시지 -->
         <div class="welcome-msg">
-            <h2><%=dto.getTeach_name()%>님 환영합니다.</h2>
+             <h2>${dto.teach_name}님 환영합니다.</h2>
         </div>
         <hr>
 

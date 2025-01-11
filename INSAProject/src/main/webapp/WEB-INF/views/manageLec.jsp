@@ -57,21 +57,21 @@
 	</tr> 
 	  </table>
 	  <table class="table4">
-    <tr>
     <thead>
-        <td>SEQ</td>
-        <td>수업</td>
-        <td>강사이름</td>
-        <td>학생이름</td>
-        <td>수업회차</td>
-        <td>강사확인</td>
-        <td>학생확인</td>
-        <td>최종확인</td>
-        </thead>
-    </tr>
+				<tr>
+					<td>SEQ</td>
+					<td>수업</td>
+					<td>강사이름</td>
+					<td>학생이름</td>
+					<td>수업회차</td>
+					<td>강사확인</td>
+					<td>학생확인</td>
+					<td>최종확인</td>
+				</tr>
+			</thead>
     	<%
-			for (EduDto dto : lists) {
-		%>
+    	for (EduDto dto : lists) {
+    	%>
     <tr>
 		<td><%=dto.getSeq() %></td>
         <td><%=dto.getLec_name() %></td>
