@@ -42,7 +42,6 @@ public class UpdateChkServlet extends HttpServlet {
 		String confirm = req.getParameter("confirm");
 		String seq = req.getParameter("seq");
 		
-		IEduManageDao dao = new EduManageDaoImpl();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("teach_conf", teach_conf);
@@ -50,7 +49,9 @@ public class UpdateChkServlet extends HttpServlet {
 		map.put("confirm", confirm);
 		map.put("seq", seq);
 		
-		int cnt = dao.updateConf(map);
+		IEduManageDao dao = new EduManageDaoImpl();
+		boolean isc = dao.updateConf(map);
+		
 		
 		
 		
