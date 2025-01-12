@@ -11,7 +11,7 @@ public interface IEduManageDao {
 	
 	public List<EduDto> getProcessInfo(String name);
 	
-	public int updateConf(Map<String, Object> map);
+	public boolean updateConf(Map<String, Object> map);
 	
 	public List<EduDto> getNotConfirm(String name);
 
@@ -22,5 +22,7 @@ public interface IEduManageDao {
 	public List<EduDto> getAllCheck(Map<String, Object> map);
 	
 	public EduDto getCheckInfo(String seq);
+	
+	public int DelCheck(String seq);
 
 }

@@ -65,6 +65,15 @@
 		<url-pattern>/checkInfo.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>delCheck</servlet-name>
+		<servlet-class>com.min.edu.ctrl.DelCheckServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delCheck</servlet-name>
+		<url-pattern>/delCheck.do</url-pattern>
+	</servlet-mapping>
+	
 
 		<!-- 강사 삭제 -->
 	<servlet>

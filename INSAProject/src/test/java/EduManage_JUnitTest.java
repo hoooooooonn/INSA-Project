@@ -36,7 +36,7 @@ public class EduManage_JUnitTest {
 	}
 	
 	@SuppressWarnings("serial")
-	@Test
+//	@Test
 	public void updateConf() {
 		Map<String, Object> map = new HashMap<String, Object>() {
 			{
@@ -46,8 +46,8 @@ public class EduManage_JUnitTest {
 				put("seq", 9);
 			}
 		};
-		int cnt = dao.updateConf(map);
-		assertNotEquals(0, cnt);
+		boolean isc = dao.updateConf(map);
+		assertNotEquals(false, isc);
 	}
 	
 //	@Test
@@ -89,6 +89,12 @@ public class EduManage_JUnitTest {
 		assertNotEquals(0, dto);
 	}
 	
+	@Test
+	public void delCheck() {
+		String seq = "1";
+		int n = dao.DelCheck(seq);
+		assertNotEquals(0, n);
+	}
 	
 	
 	

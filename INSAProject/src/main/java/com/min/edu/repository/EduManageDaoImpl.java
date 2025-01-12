@@ -32,9 +32,10 @@ public class EduManageDaoImpl implements IEduManageDao {
 	}
 
 	@Override
-	public int updateConf(Map<String, Object> map) {
+	public boolean updateConf(Map<String, Object> map) {
 		SqlSession session = factory.openSession(true);
-		return session.update(NS + "updateConf" , map);
+		int n = session.update(NS + "updateConf" , map);
+		return (n>0)?true:false;
 	}
 	
 	@Override
@@ -65,6 +66,12 @@ public class EduManageDaoImpl implements IEduManageDao {
 	public EduDto getCheckInfo(String seq) {
 		SqlSession session = factory.openSession();
 		return session.selectOne(NS + "getCheckInfo", seq);
+	}
+
+	@Override
+	public int DelCheck(String seq) {
+		SqlSession session = factory.openSession(true);
+		return session.delete(NS + "DelCheck", seq);
 	}
 	
 }
