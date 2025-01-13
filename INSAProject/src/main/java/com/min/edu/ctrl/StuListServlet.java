@@ -22,6 +22,8 @@ public class StuListServlet extends HttpServlet {
    private static final long serialVersionUID = -3394895074224635505L;
    private Logger log = Logger.getLogger(this.getClass());
 
+
+
    @Override
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        log.info("StuListServlet GET 요청 학생 전체보기");
