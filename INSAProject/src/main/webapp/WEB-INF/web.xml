@@ -106,7 +106,7 @@
 
 	<servlet-mapping>
 		<servlet-name>stuModify</servlet-name>
-		<url-pattern>/stuModifyServlet.do</url-pattern>
+		<url-pattern>/stuModify.do</url-pattern>
 	</servlet-mapping>
 	
 	<!-- 학생등록 -->

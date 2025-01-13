@@ -9,6 +9,12 @@
 	<name>web009_MyBatis_dynamic Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<!--JSTL-->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc11</artifactId>
