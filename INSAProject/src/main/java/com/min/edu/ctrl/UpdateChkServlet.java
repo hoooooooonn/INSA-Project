@@ -37,8 +37,8 @@ public class UpdateChkServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		log.info("UpdateChkServlet POST");
 	
-		String teach_conf = req.getParameter("teach_conf");
-		String stu_conf = req.getParameter("stu_conf");
+		String teach_conf = req.getParameter("teach");
+		String stu_conf = req.getParameter("student");
 		String confirm = req.getParameter("confirm");
 		String seq = req.getParameter("seq");
 		
@@ -52,7 +52,11 @@ public class UpdateChkServlet extends HttpServlet {
 		IEduManageDao dao = new EduManageDaoImpl();
 		boolean isc = dao.updateConf(map);
 		
-		
+		if (isc) {
+			resp.sendRedirect("./manageLec.do");
+		} else {
+			log.info("수업 체크 수정 실패");
+		}
 		
 		
 	}

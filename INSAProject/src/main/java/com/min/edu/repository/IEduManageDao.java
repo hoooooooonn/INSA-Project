@@ -24,5 +24,7 @@ public interface IEduManageDao {
 	public EduDto getCheckInfo(String seq);
 	
 	public int DelCheck(String seq);
+	
+	public int insertProcess(Map<String, Object> map);
 
 }

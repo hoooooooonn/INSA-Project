@@ -74,6 +74,14 @@
 		<url-pattern>/delCheck.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>insertLec</servlet-name>
+		<servlet-class>com.min.edu.ctrl.InsertLecServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>insertLec</servlet-name>
+		<url-pattern>/insertLec.do</url-pattern>
+	</servlet-mapping>
 
 		<!-- 강사 삭제 -->
 	<servlet>
