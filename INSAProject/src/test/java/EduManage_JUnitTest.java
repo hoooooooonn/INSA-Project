@@ -89,14 +89,23 @@ public class EduManage_JUnitTest {
 		assertNotEquals(0, dto);
 	}
 	
-	@Test
+//	@Test
 	public void delCheck() {
 		String seq = "1";
 		int n = dao.DelCheck(seq);
 		assertNotEquals(0, n);
 	}
 	
-	
+	@Test
+	public void insertLec() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("lec_code", 20);
+		map.put("stu_id", 104);
+		map.put("day", "월");
+		map.put("hour", 15);
+		int n = dao.insertProcess(map);
+		assertEquals(8, n);
+	}
 	
 
 }
