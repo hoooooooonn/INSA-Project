@@ -1,19 +1,23 @@
+/* 전체 페이지 배경색 어두운 톤으로 변경 */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #2c3e50 !important;
+    color: #ecf0f1; /* 글자색을 밝은 색으로 설정 (어두운 배경에 대비되도록) */
     margin: 0;
     padding: 0;
 }
 
+/* 주요 콘텐츠 영역 */
 .container {
     width: 70%;
     margin: 30px auto;
-    background-color: #ffffff;
+    background-color: #ffffff; /* 콘텐츠 영역은 흰색으로 유지 */
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* 제목 스타일 */
 h2 {
     color: #333;
     text-align: center;
@@ -30,80 +34,93 @@ hr {
 .welcome-msg {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: #ecf0f1; /* 밝은 글자색 */
     text-align: center;
     margin-bottom: 25px;
 }
 
-.card {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+/* 테이블 스타일 */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-    color: #333;
-    font-size: 22px;
-    margin-bottom: 12px;
-    text-align: center;
-    font-weight: 600;
-    background-color: #edeff2;
+.table th, .table td {
     padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.table th {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #f1c40f;
+}
+
+.table td {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Panel 스타일 */
+.panel {
     border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.card ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
-
-.card ul li {
-    margin: 10px 0;
-}
-
-.card ul li a {
-    color: #3479db;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 8px 16px;
-    border-radius: 5px;
-}
-
-.card ul li a:hover {
-    color: #ffffff;
-    background-color: #3479db;
-}
-
-.btn {
-    background-color: #3479db;
+.panel-heading {
+    background-color: #2c3e50;
     color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    display: block;
-    margin: 25px auto;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s;
+    border-radius: 8px 8px 0 0;
 }
 
-.btn:hover {
-    background-color: #ff9900;
+.panel-body {
+    padding: 15px;
+}
+
+/* 수업 완료/미완료 행 색상 */
+tr.success:nth-child(odd) {
+    background-color: #27ae60;
+    color: white;
+}
+
+tr.danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* 버튼 스타일 */
+.btn-custom {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-custom:hover {
+    background-color: #2980b9;
     transform: translateY(-4px);
 }
 
-.btn:active {
-    background-color: #ff6600;
+.btn-custom:active {
+    background-color: #1f618d;
 }

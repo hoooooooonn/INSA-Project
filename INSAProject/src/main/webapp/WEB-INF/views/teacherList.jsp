@@ -10,6 +10,7 @@
 <title>강사 목록 조회</title>
 <script type="text/javascript" src="./js/teacherlist.js"></script>
 <link rel="stylesheet" href="./css/teacherlist.css">
+<%@ include file="./header.jsp"%>
 </head>
 
 <body>
