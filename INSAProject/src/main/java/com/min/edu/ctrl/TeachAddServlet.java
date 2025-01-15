@@ -31,30 +31,53 @@ public class TeachAddServlet extends HttpServlet {
 
 	//입력
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		log.info("TeachAddServlet POST 강사등록");
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8;");
-		
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-		
-		String params = String.format("%s,%s,%s", id,name,phone);
-		log.info("요청받은 Parameters : " + params);
-		
-		ILoginDao dao = new LoginDaoImpl();
-		LoginDto dto = new LoginDto(name, id, phone);
-		
-		int row = dao.insertTeacher(dto);
-		if(row==1) {
-			response.sendRedirect("./teachListServlet.do");
-		}
-		else {
-			log.info("강사추가실패");
-		}
+		 log.info("TeachAddServlet POST 강사등록");
 
+		    request.setCharacterEncoding("UTF-8");
+		    response.setContentType("text/html; charset=UTF-8;");
+
+		    String name = null, phone = null;
+
+		    String id = request.getParameter("id");
+
+		    // 이름 유효성 검사
+		    if (Chkname(request.getParameter("name"))) {
+		        name = request.getParameter("name");
+		    } else {
+		        log.info("유효하지 않은 이름 입력");
+		        response.getWriter().print("<script>alert('※이름※: 한글로 2자이상 작성해주세요');history.back();</script>");
+		    }
+
+
+		    if (ChkPhone(request.getParameter("phone"))) {
+		        phone = request.getParameter("phone");
+		    } else {
+		        log.info("유효하지 않은 전화번호 입력");
+		        response.getWriter().print("<script>alert('※번호※:010-@@@@-@@@@으로 작성해주세요');history.back();</script>");
+		    }
+
+		    String params = String.format("%s,%s,%s", id, name, phone);
+		    log.info("요청받은 Parameters : " + params);
+
+		    ILoginDao dao = new LoginDaoImpl();
+		    LoginDto dto = new LoginDto(name, id, phone);
+
+		    int row = dao.insertTeacher(dto);
+		    if (row == 1) {
+				response.getWriter().print("<script>alert('"+name+" 강사님 추가 성공');location.href='./teachListServlet.do';</script>");
+		    }
 		
+	}
+	
+	public boolean Chkname(String name) {
+		
+		String regex = "^[가-힣a-zA-Z]{2,20}$"; 
+	    return name != null && name.matches(regex);
+	}
+	
+	public boolean ChkPhone(String phone) {
+		   String regex = "^(010-?\\d{4}-?\\d{4}|010\\d{8})$";
+		    return phone != null && phone.matches(regex);
 	}
 
 }

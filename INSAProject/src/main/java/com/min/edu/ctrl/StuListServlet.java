@@ -9,9 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import com.min.edu.dto.LoginDto;
 import com.min.edu.dto.StudentDto;
 import com.min.edu.repository.IStudentDao;
 import com.min.edu.repository.StudentDaoImpl;
@@ -33,6 +35,10 @@ public class StuListServlet extends HttpServlet {
        IStudentDao dao = new StudentDaoImpl();
        String searchName = req.getParameter("searchName");
 
+       HttpSession session = req.getSession(false);
+       LoginDto logindto = (LoginDto) session.getAttribute("loginDto");
+       req.setAttribute("dto", logindto);
+       
        // 학생 목록을 조회
        List<StudentDto> lists = dao.selectAllStudents();
 

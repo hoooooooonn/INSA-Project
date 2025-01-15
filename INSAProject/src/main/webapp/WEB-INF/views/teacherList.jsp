@@ -10,21 +10,23 @@
 <title>강사 목록 조회</title>
 <script type="text/javascript" src="./js/teacherlist.js"></script>
 <link rel="stylesheet" href="./css/teacherlist.css">
+<%@ include file="./header.jsp"%>
 </head>
 
 <body>
 	<div class="container">
 		<div class="header">
 			<span class="title"><b>강사 전체 목록</b></span>
-			<div>
+			<form action="./searchTeacher.do">
 				<select name="search" class="search">
+					<option value="All" selected="selected">전체</option>
 					<option value="id">아이디</option>
 					<option value="name">이름</option>
 					<option value="phone">전화번호</option>
 				</select>
 				<input type="text" name="searchtext">
 				<input type="submit" value="검색">
-			</div>
+			</form>
 			<button class="back-btn" onclick="location.href='./mainpageServlet.do?id=${dto.teach_id}'">이전페이지</button>
 		</div>
 		<hr>

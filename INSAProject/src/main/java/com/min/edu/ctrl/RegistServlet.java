@@ -19,8 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 public class RegistServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -7839115776527726264L;
-
-	 private Logger log = Logger.getLogger(this.getClass());
 		
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,6 +30,7 @@ public class RegistServlet extends HttpServlet {
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			 req.setCharacterEncoding("UTF-8");
 
+		        log.info("RegistServlet POST 요청");
 		        // 학생 등록 폼에서 입력받은 데이터 가져오기
 		        String stuName = req.getParameter("stu_name");
 		        String stuPhone = req.getParameter("stu_phone");
@@ -48,14 +47,17 @@ public class RegistServlet extends HttpServlet {
 		        dto.setAge(Integer.parseInt(age));
 		        dto.setPref(pref);
 		        dto.setNote(note);
-
-		        // DAO 객체 사용하여 학생 등록
+		        
+		        log.info("dto {} : ", dto);
+		        
+//		        // DAO 객체 사용하여 학생 등록
 		        IStudentDao dao = new StudentDaoImpl();
 		        int result = dao.insertStudent(dto);
 
 		        if (result > 0) {
 		            // 등록 성공 시 학생 목록 페이지로 리다이렉트
-		            resp.sendRedirect(req.getContextPath() + "/stuListServlet.do");
+		        	log.info("학생등록에 성공하였습니다! {} : ", dto);
+		            resp.sendRedirect("./stuListServlet.do");
 		        } else {
 		            // 등록 실패 시 오류 메시지 표시
 		            req.setAttribute("errorMessage", "학생 등록에 실패했습니다.");

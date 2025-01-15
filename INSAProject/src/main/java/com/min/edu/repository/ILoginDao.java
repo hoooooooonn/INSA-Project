@@ -14,7 +14,13 @@ public interface ILoginDao {
 		public List<LoginDto> getAllTeacher();
 
 	// 특정 강사 조회
-
+		//아이디
+		public List<LoginDto> searchId(Map<String,Object>map);
+		//이름
+		public List<LoginDto> searchName(Map<String,Object>map);
+		//폰
+		public List<LoginDto> searchPhone(Map<String,Object>map);
+		
 	//강사추가
 		public int insertTeacher(LoginDto dto);
 
