@@ -14,6 +14,10 @@ public interface ILoginDao {
 		public List<LoginDto> getAllTeacher();
 
 	// 특정 강사 조회
+		
+	// 강사 이름 조회
+		public List<LoginDto> selectTeacher(String name);
+	
 
 	//강사추가
 		public int insertTeacher(LoginDto dto);

@@ -8,11 +8,18 @@
     FROM STUDENT
 </select>
 
-<!-- 학생상세조회 selectStudentById -->
+<!-- 학생상세조회(ID) selectStudentById -->
 <select id="selectStudentById" parameterType="Integer" resultType="com.min.edu.dto.StudentDto">
     SELECT STU_ID, STU_NAME, STU_PHONE, GEN, AGE, PREF, NOTE
     FROM STUDENT
     WHERE STU_ID = #{stu_id}
+</select>
+
+<!-- 학생상세조회(이름) selectStudentByName -->
+<select id="selectStudentByName"  resultType="com.min.edu.dto.StudentDto">
+    SELECT STU_ID, STU_NAME, AGE
+    FROM STUDENT
+    WHERE STU_NAME = #{stu_name}
 </select>
 
 <!-- 학생정보수정 updateStudent -->

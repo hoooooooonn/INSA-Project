@@ -46,4 +46,11 @@ public class StudentDaoImpl implements IStudentDao {
 		return session.insert(NS+"insertStudent",dto);
 	}
 
+	@Override
+	public List<StudentDto> selectStudentByName(String name) {
+		log.info("학생 이름 검색 : " + name);
+		SqlSession session = manager.openSession();
+		return session.selectList(NS + "selectStudentByName", name);
+	}
+
 }
