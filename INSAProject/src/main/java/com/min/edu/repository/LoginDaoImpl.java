@@ -87,4 +87,11 @@ public class LoginDaoImpl implements ILoginDao{
 		return session.selectList(NS+"searchPhone",map);
 	}
 
+	@Override
+	public List<LoginDto> selectTeacher(String name) {
+		log.info("강사 이름 검색");
+		SqlSession session = manager.openSession();
+		return session.selectList(NS + "selectTeacher", name);
+	}
+
 }

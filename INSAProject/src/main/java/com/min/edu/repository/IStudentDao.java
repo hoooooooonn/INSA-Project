@@ -9,6 +9,8 @@ public interface IStudentDao {
 	public List<StudentDto> selectAllStudents();
 
 	public StudentDto selectStudentById(int stu_id);
+	
+	public List<StudentDto> selectStudentByName(String name);
 
 	public Integer updateStudent(StudentDto dto);
 

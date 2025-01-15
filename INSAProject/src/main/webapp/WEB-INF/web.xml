@@ -26,7 +26,16 @@
 		<servlet-name>teachList</servlet-name>
 		<url-pattern>/teachListServlet.do</url-pattern>
 	</servlet-mapping>
-
+	
+	<!-- 강사 이름 조회 -->
+	<servlet>
+		<servlet-name>SearchTeaServlet</servlet-name>
+		<servlet-class>com.min.edu.ctrl.SearchTeaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchTeaServlet</servlet-name>
+		<url-pattern>/SearchTeaServlet.do</url-pattern>
+	</servlet-mapping>
 	<!-- 강사 추가 -->
 	<servlet>
 		<servlet-name>teachAdd</servlet-name>
@@ -82,7 +91,15 @@
 		<servlet-name>insertLec</servlet-name>
 		<url-pattern>/insertLec.do</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>searchStuServlet</servlet-name>
+		<servlet-class>com.min.edu.ctrl.SearchStuServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>searchStuServlet</servlet-name>
+		<url-pattern>/searchStuServlet.do</url-pattern>
+	</servlet-mapping>
 		<!-- 강사 삭제 -->
 	<servlet>
 		<servlet-name>teachDel</servlet-name>

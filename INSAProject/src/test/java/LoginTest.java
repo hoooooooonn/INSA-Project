@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.min.edu.dto.LoginDto;
@@ -17,8 +18,15 @@ import com.min.edu.repository.LoginDaoImpl;
 
 public class LoginTest {
 
+	ILoginDao dao;
 	
-	@Test
+	@Before
+	public void create() {
+		dao = new LoginDaoImpl();
+	}
+	
+	
+//	@Test
 	public void test() {
 		SqlSessionFactory manager =  SqlSessionFactoryManager.getFactory();
 		SqlSession session = manager.openSession();
@@ -34,14 +42,18 @@ public class LoginTest {
 		map.put("pw", "4567");
 		
 		LoginDto login = dao.getLogin(map);
-
 		
 		assertNotNull(login);
 		
 		
 	}
 
-	
+	@Test
+	public void selectTeacher() {
+		String name = "이상훈";
+		List<LoginDto> lists = dao.selectTeacher(name);
+		assertNotEquals(0, lists.size());
+	}
 	
 
 }
