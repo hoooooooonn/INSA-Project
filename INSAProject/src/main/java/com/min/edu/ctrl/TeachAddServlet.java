@@ -45,6 +45,7 @@ public class TeachAddServlet extends HttpServlet {
 		        name = request.getParameter("name");
 		    } else {
 		        log.info("유효하지 않은 이름 입력");
+		        response.getWriter().print("<script>alert('※이름※: 한글로 2자이상 작성해주세요');history.back();</script>");
 		    }
 
 
@@ -52,12 +53,7 @@ public class TeachAddServlet extends HttpServlet {
 		        phone = request.getParameter("phone");
 		    } else {
 		        log.info("유효하지 않은 전화번호 입력");
-		    }
-
-	
-		    if (phone == null || name == null) {
-		        log.info("강사추가실패");
-				response.getWriter().print("<script>alert('강사추가실패');location.href='./teachListServlet.do';</script>");
+		        response.getWriter().print("<script>alert('※번호※:010-@@@@-@@@@으로 작성해주세요');history.back();</script>");
 		    }
 
 		    String params = String.format("%s,%s,%s", id, name, phone);
@@ -68,12 +64,8 @@ public class TeachAddServlet extends HttpServlet {
 
 		    int row = dao.insertTeacher(dto);
 		    if (row == 1) {
-		        response.sendRedirect("./teachListServlet.do");
-		    } else {
-		        log.info("강사추가실패");
-				response.getWriter().print("<script>alert('강사추가실패');location.href='./teachListServlet.do';</script>");
+				response.getWriter().print("<script>alert('"+name+" 강사님 추가 성공');location.href='./teachListServlet.do';</script>");
 		    }
-
 		
 	}
 	
