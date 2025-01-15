@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ include file="./header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,43 +28,67 @@ h3 {
     }
 </script>
 
+
 </head>
 
 <body>
 
-<h2>학생 목록</h2>
+<div class="container">
+    <div class="header">
+        <span class="title"><b>학생 목록 조회</b></span>
 
-<!-- 검색 폼 -->
-<form action="./stuListServlet.do" method="get">
-    <h3><label for="searchName">학생 이름: </label>
-    <input type="text" style="background-color: #f0f0f0;" id="searchName" name="searchName" value="${searchName != null ? searchName : ""}" />
-    <button type="submit" onclick="regist()" class="btn btn-submit">검색</button></h3>
-</form>
+        <!-- 검색 폼 -->
+        <form action="./stuListServlet.do" method="get">
+            <div>
+                <label for="searchName">학생 이름: </label>
+                <input type="text" style="background-color: #f0f0f0;" id="searchName" name="searchName" value="${searchName != null ? searchName : ""}" />
+                <input type="submit" value="검색">
+            </div>
+        </form>
+	<button class="back-btn" onclick="location.href='./mainpageServlet.do?id=${dto.teach_id}'">이전페이지</button>
+    </div>
 
-<br />
+    <hr>
 
-<table class="table4">
-    <thead>
-        <tr>
-            <th>학생 ID</th>
-            <th>학생 이름</th>
-            <th>전화번호</th>
-            <th>성별</th>
-            <th>나이</th>
-            <th>선호도</th>
-            <th>메모</th>
-            <th>수정</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:choose>
-            <c:when test="${not empty lists}">
-                <c:choose>
-                    <c:when test="${not empty searchName}">
-                        <c:forEach var="student" items="${lists}">
-                            <c:if test="${fn:contains(student.stu_name, searchName)}">
+    <table class="table4">
+        <thead>
+            <tr>
+                <th>학생 ID</th>
+                <th>학생 이름</th>
+                <th>전화번호</th>
+                <th>성별</th>
+                <th>나이</th>
+                <th>선호도</th>
+                <th>메모</th>
+                <th>수정</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:choose>
+                <c:when test="${not empty lists}">
+                    <c:choose>
+                        <c:when test="${not empty searchName}">
+                            <c:forEach var="student" items="${lists}">
+                                <c:if test="${fn:contains(student.stu_name, searchName)}">
+                                    <tr>
+                                        <td><a href="./stuUpdate.do?seq=${student.stu_id}">${student.stu_id}</a></td>
+                                        <td>${student.stu_name}</td>
+                                        <td>${student.stu_phone}</td>
+                                        <td>${student.gen}</td>
+                                        <td>${student.age}</td>
+                                        <td>${student.pref}</td>
+                                        <td>${student.note}</td>
+                                        <td>
+                                            <button onclick="location.href='./stuModify.do?stu_id=${student.stu_id}'">수정</button>
+                                        </td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach var="student" items="${lists}">
                                 <tr>
-                                    <td><a href="./stuUpdate.do?seq=${student.stu_id}">${student.stu_id}</a></td>
+                                    <td>${student.stu_id}</td>
                                     <td>${student.stu_name}</td>
                                     <td>${student.stu_phone}</td>
                                     <td>${student.gen}</td>
@@ -72,43 +96,28 @@ h3 {
                                     <td>${student.pref}</td>
                                     <td>${student.note}</td>
                                     <td>
-                                        <button>수정</button>
+                                        <button onclick="location.href='./stuModify.do?stu_id=${student.stu_id}'">수정</button>
                                     </td>
                                 </tr>
-                            </c:if>
-                        </c:forEach>
-                    </c:when>
-                    <c:otherwise>
-                        <c:forEach var="student" items="${lists}">
-                            <tr>
-                                <td>${student.stu_id}</td>
-                                <td>${student.stu_name}</td>
-                                <td>${student.stu_phone}</td>
-                                <td>${student.gen}</td>
-                                <td>${student.age}</td>
-                                <td>${student.pref}</td>
-                                <td>${student.note}</td>
-                                <td>
-                                    <button>수정</button>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </c:otherwise>
-                </c:choose>
-            </c:when>
-            <c:otherwise>
-                <tr>
-                    <td colspan="7">검색된 학생이 없습니다.</td>
-                </tr>
-            </c:otherwise>
-        </c:choose>
-        <tr>
-            <td colspan="8" class="text-center">
-                <input type="button" value="학생등록" class="btn btn-submit" onclick="regist()">
-            </td>
-        </tr>
-    </tbody>
-</table>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                    <tr>
+                        <td colspan="8">검색된 학생이 없습니다.</td>
+                    </tr>
+                </c:otherwise>
+            </c:choose>
+
+            <tr>
+                <td colspan="8" class="text-center">
+                    <input type="button" value="학생등록" class="btn btn-submit" onclick="location.href='./stuAddServlet.do'">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <script type="text/javascript">
     var btns = document.querySelectorAll("button");
