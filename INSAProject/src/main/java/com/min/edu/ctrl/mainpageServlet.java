@@ -39,7 +39,7 @@ public class mainpageServlet extends HttpServlet {
 	        if (logindto != null) {
 	            // 로그인된 사용자 정보가 있다면 Teach_id 가져오기
 	            String dtoid = logindto.getTeach_id();
-	            log.info("dtoid : {}", dtoid);
+	            String dtoname = logindto.getTeach_name();
 
 	            // 이후 로직...
 	            ILoginDao dao = new LoginDaoImpl();
@@ -49,7 +49,14 @@ public class mainpageServlet extends HttpServlet {
 	            String role1 = req.getParameter("role1");
 	            String role2 = req.getParameter("role2");
 	            String search = req.getParameter("search");
+	            
 	            Map<String, Object> map = new HashMap<String, Object>();
+	            if(search==null) {
+	            	search=dtoname;
+	            }
+	            
+	            log.info("search : {}",search);
+	            
 	            map.put("search", search);
 	            map.put("role1", role1);
 	            map.put("role2", role2);

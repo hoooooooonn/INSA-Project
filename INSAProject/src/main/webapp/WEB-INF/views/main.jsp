@@ -47,6 +47,8 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:choose>
+									<c:when test="${not empty lists}">
 									<!-- 수업 목록을 출력 -->
 									<c:forEach var="d" items="${lists}">
 										<!-- confirm 값에 따라 행 스타일을 다르게 설정 -->
@@ -59,6 +61,11 @@
 											<td>${d.stu_conf}</td>
 											<td>${d.confirm}</tr>
 									</c:forEach>
+									</c:when>
+									<c:otherwise>
+										<h2 style="background-color: red"><b>조회된 수업이 없습니다.</b></h2>
+									</c:otherwise>
+								</c:choose>
 								</tbody>
 							</table>
 						</div>
