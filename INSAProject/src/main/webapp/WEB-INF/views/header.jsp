@@ -27,6 +27,7 @@
                 <li><a href="./teachListServlet.do">강사조회</a></li>
                 <li><a href="./manageLec.do">수업관리</a></li>
                 <li><a href="#">결재</a></li>
+                <li><a href="#">수업일지</a></li>
             </ul>
 
             <!-- 로그아웃 버튼 (우측에 배치) -->
