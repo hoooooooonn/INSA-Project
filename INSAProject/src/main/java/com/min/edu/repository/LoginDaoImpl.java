@@ -10,9 +10,11 @@ import org.apache.log4j.Logger;
 import com.min.edu.dto.LoginDto;
 import com.min.edu.mybatis.SqlSessionFactoryManager;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class LoginDaoImpl implements ILoginDao{
 
-	private Logger log = Logger.getLogger(this.getClass());
 	private SqlSessionFactory manager = SqlSessionFactoryManager.getFactory();
 	private final String NS = "com.min.edu.repository.LoginDaoImpl.";
 	
@@ -62,6 +64,27 @@ public class LoginDaoImpl implements ILoginDao{
 		SqlSession session = manager.openSession(true);
 		int row = session.delete(NS+"delTeacher",teach_id);
 		return row;
+	}
+	
+	@Override
+	public List<LoginDto> searchId(Map<String, Object> map) {
+		log.info("searchId : 강사 ID 검색 {}" , map);
+		SqlSession session = manager.openSession();
+		return session.selectList(NS+"searchId",map);
+	}
+	
+	@Override
+	public List<LoginDto> searchName(Map<String, Object> map) {
+		log.info("searchId : 강사 이름 검색 {}" , map);
+		SqlSession session = manager.openSession();
+		return session.selectList(NS+"searchName",map);
+	}
+	
+	@Override
+	public List<LoginDto> searchPhone(Map<String, Object> map) {
+		log.info("searchId : 강사 폰 검색 {}" , map);
+		SqlSession session = manager.openSession();
+		return session.selectList(NS+"searchPhone",map);
 	}
 
 	@Override

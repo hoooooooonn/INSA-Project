@@ -52,17 +52,13 @@ public class LoginServlet extends HttpServlet {
 		log.info("전달받은 요청 값 :" + map);
 		LoginDto logindto = dao.getLogin(map);
 		log.info("로그인된 사용자 정보 : " + logindto);
-	
-		
-	
-		
 
 		if (logindto != null) {
 			HttpSession session = req.getSession();
 			session.setAttribute("loginDto", logindto);
 			log.info("로그인성공" + logindto);
 			req.setAttribute("dto", logindto);
-			req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);
+			resp.sendRedirect("./mainpageServlet.do");
 			
 		}else {
 			resp.getWriter().print("<script>alert('회원이 존재하지 않습니다.'); location.href='./' </script>");

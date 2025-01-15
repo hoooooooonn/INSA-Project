@@ -1,118 +1,139 @@
 <%@page import="java.util.List"%>
 <%@page import="com.min.edu.dto.StudentDto"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ include file="./header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>학생 전체 조회</title>
+<link rel="stylesheet" href="./css/teacherupdate.css">
+<link rel="stylesheet" href="./css/teacherlist.css">
 
 <style>
-.table4 {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table4 th, .table4 td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.table4 thead {
-    background-color: #f2f2f2;  
-    color: black; 
+h3 {
+	font-size: 20px;
+	color: #333;
+	text-align: center;
+	margin-bottom: 20px;
 }
 </style>
-
 <script type="text/javascript">
-   function regist() {
-      window.location.href = './registServlet.do';
-   }
+	function regist() {
+		window.location.href = './registServlet.do';
+	}
 </script>
 
+
 </head>
-<%
-    // 학생 목록을 request 속성에서 가져오기
-    List<StudentDto> studentList = (List<StudentDto>) request.getAttribute("lists");
-    // 검색어
-    String searchName = (String) request.getAttribute("searchName");
-%>
+
 <body>
 
-<h2>학생 목록</h2>
+	<div class="container">
+		<div class="header">
+			<span class="title"><b>학생 목록 조회</b></span>
 
+			<!-- 검색 폼 -->
+			<form action="./stuListServlet.do" method="get">
+				<div>
+					<label for="searchName">학생 이름: </label> <input type="text"
+						class="input-search" id="searchName" name="searchName"
+						value="${searchName != null ? searchName : ''}" /> <input
+						type="submit" value="검색">
+				</div>
+			</form>
+			<button class="back-btn"
+				onclick="location.href='./mainpageServlet.do?id=${dto.teach_id}'">이전페이지</button>
+		</div>
 
-<!-- 검색 폼 -->
-<form action="./stuListServlet.do" method="get">
-    <label for="searchName">학생 이름: </label>
-    <input type="text" id="searchName" name="searchName" value="<%= searchName != null ? searchName : "" %>" />
-    <button type="submit">검색</button>
-    <button type="submit">수정</button>
-    <button type="submit" onclick="regist()">등록</button>
-</form>
+		<hr>
 
+		<table class="table4">
+			<thead>
+				<tr>
+					<th>학생 ID</th>
+					<th>학생 이름</th>
+					<th>전화번호</th>
+					<th>성별</th>
+					<th>나이</th>
+					<th>선호도</th>
+					<th>메모</th>
+					<th>수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:choose>
+					<c:when test="${not empty lists}">
+						<c:choose>
+							<c:when test="${not empty searchName}">
+								<c:forEach var="student" items="${lists}">
+									<c:if test="${fn:contains(student.stu_name, searchName)}">
+										<tr>
+											<td><a href="./stuUpdate.do?seq=${student.stu_id}">${student.stu_id}</a></td>
+											<td>${student.stu_name}</td>
+											<td>${student.stu_phone}</td>
+											<td>${student.gen}</td>
+											<td>${student.age}</td>
+											<td>${student.pref}</td>
+											<td>${student.note}</td>
+											<td>
+												<button
+													onclick="location.href='./stuModify.do?stu_id=${student.stu_id}'">수정</button>
+											</td>
+										</tr>
+									</c:if>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<c:forEach var="student" items="${lists}">
+									<tr>
+										<td>${student.stu_id}</td>
+										<td>${student.stu_name}</td>
+										<td>${student.stu_phone}</td>
+										<td>${student.gen}</td>
+										<td>${student.age}</td>
+										<td>${student.pref}</td>
+										<td>${student.note}</td>
+										<td>
+											<button
+												onclick="location.href='./stuModify.do?stu_id=${student.stu_id}'">수정</button>
+										</td>
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="8">검색된 학생이 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 
-<br />
+				<tr>
+					<td colspan="8" class="text-center"><input type="button"
+						value="학생등록" class="btn btn-submit"
+						onclick="window.location.href='./registServlet.do'"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-<table class="table4">
-    <thead>
-        <tr>
-            <th>학생 ID</th>
-            <th>학생 이름</th>
-            <th>전화번호</th>
-            <th>성별</th>
-            <th>나이</th>
-            <th>선호도</th>
-            <th>메모</th>
-        </tr>
-    </thead>
-    <tbody>
-        <%
-            if (studentList != null && !studentList.isEmpty()) {
-                // 검색어가 있으면 해당 이름만 필터링하여 출력
-                if (searchName != null && !searchName.trim().isEmpty()) {
-                    for (StudentDto student : studentList) {
-                        if (student.getStu_name().contains(searchName)) {
-        %>
-                            <tr>
-                                <td><%= student.getStu_id() %></td>
-                                <td><%= student.getStu_name() %></td>
-                                <td><%= student.getStu_phone() %></td>
-                                <td><%= student.getGen() %></td>
-                                <td><%= student.getAge() %></td>
-                                <td><%= student.getPref() %></td>
-                                <td><%= student.getNote() %></td>
-                            </tr>
-        <%
-                        }
-                    }
-                } else {
-                    // 검색어가 없으면 전체 학생 목록을 출력
-                    for (StudentDto student : studentList) {
-        %>
-                            <tr>
-                                <td><%= student.getStu_id() %></td>
-                                <td><%= student.getStu_name() %></td>
-                                <td><%= student.getStu_phone() %></td>
-                                <td><%= student.getGen() %></td>
-                                <td><%= student.getAge() %></td>
-                                <td><%= student.getPref() %></td>
-                                <td><%= student.getNote() %></td>
-                            </tr>
-        <%
-                    }
-                }
-            } else {
-        %>
-            <tr>
-                <td colspan="7">검색된 학생이 없습니다.</td>
-            </tr>
-        <%
-            }
-        %>
-    </tbody>
-</table>
+	<script type="text/javascript">
+		var btns = document.querySelectorAll("button");
+		for (let i = 0; i < btns.length; i++) {
+	        if (!btns[i].classList.contains("back-btn")) {
+				btns[i].onclick = function() {
+					var stu_id = this.parentNode.parentNode.children[0].textContent; // id값 가져온다.
+					console.log("선택된 row의 id값 : ", stu_id)
+					location.href = "./stuModify.do?stu_id=" + stu_id;
+				}
+			}
+		}
+	</script>
 
 </body>
 </html>
