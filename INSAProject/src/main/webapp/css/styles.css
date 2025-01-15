@@ -9,12 +9,14 @@ body {
 
 /* 주요 콘텐츠 영역 */
 .container {
-    width: 70%;
-    margin: 30px auto;
+    width: 793px;  /* A4 용지 크기 (가로) */
+    height: 900px; /* A4 용지 크기 (세로) */
+    margin: 30px auto; /* 페이지 가운데 정렬 */
     background-color: #ffffff; /* 콘텐츠 영역은 흰색으로 유지 */
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+/*     overflow: auto; 내용이 넘칠 경우 스크롤 추가 */
 }
 
 /* 제목 스타일 */
@@ -92,16 +94,6 @@ hr {
     padding: 15px;
 }
 
-/* 수업 완료/미완료 행 색상 */
-tr.success:nth-child(odd) {
-    background-color: #27ae60;
-    color: white;
-}
-
-tr.danger {
-    background-color: #e74c3c;
-    color: white;
-}
 
 /* 버튼 스타일 */
 .btn-custom {
@@ -123,4 +115,20 @@ tr.danger {
 
 .btn-custom:active {
     background-color: #1f618d;
+}
+
+
+/* 스크롤 가능한 테이블 컨테이너 */
+.scrollable-table-container {
+    width: 100%;
+    height: 700px; /* 원하는 높이로 설정 */
+    overflow-y: auto; /* 수직 스크롤만 활성화 */
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* 테이블 스타일 */
+.table-wrapper {
+    width: 100%; /* 테이블이 부모 컨테이너에 맞춰짐 */
 }

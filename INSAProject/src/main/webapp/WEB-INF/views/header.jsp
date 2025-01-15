@@ -15,9 +15,10 @@
     <!-- GNB (Global Navigation Bar) -->
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
-            <!-- 브랜드 이름 또는 로고 -->
             <div class="navbar-header">
-                <a class="navbar-brand " href="./mainpageServlet.do?id=${dto.teach_id}">Welcome, ${dto.teach_name}님</a>
+            <!-- 성연메모 : 어차피 서블릿에서 session 으로 가져올거기때문에 굳이 id 보내줄 필요없음 -->
+<%--                 <a class="navbar-brand " href="./mainpageServlet.do?id=${dto.teach_id}">Welcome, ${dto.teach_name}님</a> --%>
+                <a class="navbar-brand" href="./mainpageServlet.do">Welcome, ${dto.teach_name}님</a>
             </div>
 
             <!-- 메뉴 항목 -->

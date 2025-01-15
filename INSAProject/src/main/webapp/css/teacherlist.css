@@ -1,3 +1,4 @@
+/* Body 스타일 */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* 전체 컨테이너 */
 .container {
     width: 80%;
     margin: 50px auto;
@@ -14,6 +16,7 @@ body {
     border-radius: 10px;
 }
 
+/* 헤더 스타일 */
 .header {
     display: flex;
     justify-content: space-between;
@@ -26,6 +29,7 @@ body {
     color: #333;
 }
 
+/* 뒤로 가기 버튼 스타일 */
 .back-btn {
     background-color: #3479db;
     color: white;
@@ -40,6 +44,8 @@ body {
 .back-btn:hover {
     background-color: #ff9900;
 }
+
+
 
 .table4 {
     width: 100%;
@@ -79,6 +85,7 @@ body {
     background-color: #ff9900;
 }
 
+/* 추가 버튼 스타일 */
 .add-btn {
     background-color: #28a745;
     color: white;
@@ -94,11 +101,12 @@ body {
     background-color: #218838;
 }
 
+/* 텍스트 가운데 정렬 */
 .text-center {
     text-align: center;
 }
 
-/* Styling for the <select> tag */
+/* 검색 폼 스타일 */
 .search {
     padding: 10px;
     font-size: 16px;
@@ -120,7 +128,7 @@ body {
     box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
 }
 
-/* Styling for the search input field */
+/* 검색 입력 필드 스타일 */
 .header input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -137,7 +145,7 @@ body {
     box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
 }
 
-/* Styling for the search submit button */
+/* 검색 제출 버튼 스타일 */
 .header input[type="submit"] {
     background-color: #3479db;
     color: white;
@@ -152,5 +160,3 @@ body {
 .header input[type="submit"]:hover {
     background-color: #ff9900;
 }
-
-
