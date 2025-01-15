@@ -57,9 +57,7 @@ public class TeachAddServlet extends HttpServlet {
 	
 		    if (phone == null || name == null) {
 		        log.info("강사추가실패");
-				response.getWriter().print("<script>alert('강사추가실패');</script>");
-//		        response.sendRedirect("./teachListServlet.do");
-		        return; 
+				response.getWriter().print("<script>alert('강사추가실패');location.href='./teachListServlet.do';</script>");
 		    }
 
 		    String params = String.format("%s,%s,%s", id, name, phone);
@@ -73,7 +71,7 @@ public class TeachAddServlet extends HttpServlet {
 		        response.sendRedirect("./teachListServlet.do");
 		    } else {
 		        log.info("강사추가실패");
-				response.getWriter().print("<script>alert('강사추가실패');</script>");
+				response.getWriter().print("<script>alert('강사추가실패');location.href='./teachListServlet.do';</script>");
 		    }
 
 		
