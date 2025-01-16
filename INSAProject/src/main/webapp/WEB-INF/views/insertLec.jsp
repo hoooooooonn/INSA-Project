@@ -9,31 +9,32 @@
 <meta charset="UTF-8">
 <title>신규 수업 추가</title>
 <script type="text/javascript" src="./js/insertLec.js"></script>
+    <link rel="stylesheet" href="./css/insertLecCss.css">
 </head>
 <body>
-	<h2>신규수업 추가</h2>
 	<form action="./insertLec.do" method="post">
 	<table>
+	<h2>신규수업 추가</h2>
 		<tr>
 			<td>학생이름
 				<input type="text" id="student" >
-			</td>
-			<td>
+<!-- 			</td> -->
+<!-- 			<td> -->
 				<input type="hidden" id="stuidDiv" name="student"></input>
-			</td>
-			<td>
-				<input type="button" value="검색" onclick="stuOpen()">
+<!-- 			</td> -->
+<!-- 			<td> -->
+				<input type="button" id="searchbtn" value="검색" onclick="stuOpen()">
 			</td>
 		</tr>
 		<tr>
 			<td>담당강사
 				<input type="text" id ="teacher">
-			</td>
-			<td>
+<!-- 			</td> -->
+<!-- 			<td> -->
 				<input type="hidden" id="teaidDiv" name ="teacher"></input>
-			</td>
-			<td>
-				<input type="button" value="검색" onclick="teaOpen()">
+<!-- 			</td> -->
+<!-- 			<td> -->
+				<input type="button" id="searchbtn" value="검색" onclick="teaOpen()">
 			</td>
 		</tr>
 		<tr>
@@ -71,7 +72,8 @@
 		</tr>
 	</table>
 	
-	<input type="submit" value="완료">
+<input type="submit" value="완료">
+<input type="button" id="back" value="취소" onclick="history.back();">
 	</form>
 </body>
 <script type="text/javascript">
