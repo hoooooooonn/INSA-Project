@@ -1,0 +1,153 @@
+/* Body 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: bold;   /* 굵게 만들기 */
+    text-align: left;    /* 왼쪽 정렬 */
+}
+
+/* 전체 컨테이너 */
+form {
+    width: 80%;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* 헤더 스타일 */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 검색 폼 스타일 */
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table td {
+    padding: 10px;
+}
+
+select, input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+select:hover, input[type="text"]:hover {
+    border-color: #3479db;
+}
+
+select:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #3479db;
+    box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
+}
+
+input[type="submit"], input[type="button"] {
+    background-color: #3479db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #ff9900;
+}
+
+/* 테이블 스타일 */
+.table4 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table4 th, .table4 td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table4 thead {
+    background-color: #3479db;
+    color: white;
+}
+
+.table4 tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table4 tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table4 td button {
+    background-color: #3479db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.table4 td button:hover {
+    background-color: #ff9900;
+}
+
+/* 뒤로 가기 버튼 스타일 */
+#backButton {
+    background-color: #000733;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+#backButton:hover {
+    background-color: #ff9900;
+}
+
+/* 추가 버튼 스타일 */
+.add-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* 텍스트 가운데 정렬 */
+.text-center {
+    text-align: center;
+}

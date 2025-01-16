@@ -1,0 +1,123 @@
+/* Body 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 전체를 차지하도록 설정 */
+}
+
+/* 전체 컨테이너 */
+form {
+    width: 60%;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* 제목 스타일 */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* 제목 중앙 정렬 */
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    margin: 0 auto 20px auto; /* 테이블 중앙 정렬 */
+    border-collapse: collapse; /* 테이블 경계선 겹침 방지 */
+}
+
+table td {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center; /* 모든 셀 내용 중앙 정렬 */
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 200px;
+    margin-right: 10px;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #3479db;
+    box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
+}
+
+/* 버튼 공통 스타일 */
+input[type="button"], input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    display: inline-block; /* 버튼을 가로로 나란히 배치 */
+    margin-right: 10px;
+}
+
+/* 검색 버튼 스타일 */
+#searchbtn {
+    background-color: #3479db; /* 파란색 배경 */
+    color: white;
+}
+
+#searchbtn:hover {
+    background-color: #ff9900; /* 호버 시 주황색 */
+}
+
+/* 완료 버튼 스타일 */
+input[type="submit"] {
+    background-color: #3479db;
+    color: white;
+    width: 48%; /* 두 버튼이 나란히 배치되도록 크기 조정 */
+}
+
+input[type="submit"]:hover {
+    background-color: #ff9900;
+}
+
+/* 취소 버튼 스타일 */
+#back {
+    background-color: #ff4c4c; /* 빨간색 배경 */
+    color: white;
+    width: 48%; /* 두 버튼이 나란히 배치되도록 크기 조정 */
+}
+
+#back:hover {
+    background-color: #ff1a1a; /* 취소 버튼 호버시 어두운 빨간색 */
+}
+
+/* 숨겨진 학생 및 강사 ID 필드 */
+input[type="hidden"] {
+    display: none;
+}
+
+/* 레이아웃 개선: 입력 버튼들 오른쪽 정렬 */
+table tr {
+    text-align: left;
+}
+
+/* 수업 목록에 대한 스타일 */
+select[name="lec"], select[name="days"], select[name="clock"] {
+    width: 220px;
+    margin-right: 10px;
+}
+
+/* 강조된 텍스트 스타일 */
+label {
+    font-weight: bold;
+}
