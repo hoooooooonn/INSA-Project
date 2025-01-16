@@ -46,30 +46,30 @@ public class mainpageServlet extends HttpServlet {
 	            logindto = dao.getUserInfo(dtoid);
 	            
 	            IEduManageDao EduManagedao = new EduManageDaoImpl();
-	            String role1 = req.getParameter("role1");
-	            if (role1 == null) {
-	                role1 = "";  // 기본값을 빈 문자열로 설정
-	            }
-	            String role2 = req.getParameter("role2");
-	            if (role2 == null) {
-	                role2 = "학생";  // 기본값 설정
-	            }
-	            String search = req.getParameter("search");
-	            
-	            Map<String, Object> map = new HashMap<String, Object>();
-	            if (search == null) {
-	                search = (dtoname != null) ? dtoname : ""; 
-	            }
-	            
-	            log.info("search : {}",search);
-	            
-	            map.put("search", search);
-	            map.put("role1", role1);
-	            map.put("role2", role2);
-	            
+//	            String role1 = req.getParameter("role1");
+//	            if (role1 == null) {
+//	                role1 = "";  // 기본값을 빈 문자열로 설정
+//	            }
+//	            String role2 = req.getParameter("role2");
+//	            if (role2 == null) {
+//	                role2 = "학생";  // 기본값 설정
+//	            }
+//	            String search = req.getParameter("search");
+//	            
+//	            Map<String, Object> map = new HashMap<String, Object>();
+//	            if (search == null) {
+//	                search = (dtoname != null) ? dtoname : ""; 
+//	            }
+//	            
+//	            log.info("search : {}",search);
+//	            
+//	            map.put("search", search);
+//	            map.put("role1", role1);
+//	            map.put("role2", role2);
+//	            
 	         // 데이터 조회
 	            try {
-	                List<EduDto> lists = EduManagedao.getAllCheck(map);
+	                List<EduDto> lists = EduManagedao.getAllCheck(null);
 	                log.info("lists.size() : {}", lists.size());
 	                req.setAttribute("lists", lists);
 	            } catch (Exception e) {
