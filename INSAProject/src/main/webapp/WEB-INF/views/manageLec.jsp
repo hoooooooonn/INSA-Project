@@ -30,23 +30,29 @@
 }
 </style>
 </head>
-
 <body>
+<form action="./manageLec.do" method="post">
 		<h1>수업관리</h1>
 		<table>
 			<tr>
-				<td><select name="role1">
+				<td>
+				<select name="role1">
 						<option value="">전체</option>
 						<option value="Y">완료</option>
 						<option value="N">미완료</option>
-				</select></td>
-				<td><select name="role2">
+				</select>
+				</td>
+				<td>
+				<select name="role2">
 						<option>전체</option>
 						<option value="학생">학생</option>
 						<option value="강사">강사</option>
-				</select></td>
-				<td><input type="text" name="search"><input
-					type="submit" value="검색"></td>
+				</select>
+				</td>
+				<td><input type="text" name="search"><input type="submit" value="검색"></td>
+				<td>
+					<a href="./insertLec.do"><input type="button" value="추가"></a>
+				</td>
 			</tr>
 		</table>
 		<table class="table4">
@@ -107,6 +113,7 @@
 	</tr>
 </tfoot>
 		</table>
+</form>
 </body>
 <script type="text/javascript">
 	var btns = document.querySelectorAll("button");

@@ -70,8 +70,14 @@ public class EduManageDaoImpl implements IEduManageDao {
 
 	@Override
 	public int DelCheck(String seq) {
-		SqlSession session = factory.openSession(true);
+		SqlSession session = factory.openSession();
 		return session.delete(NS + "DelCheck", seq);
+	}
+
+	@Override
+	public int insertProcess(Map<String, Object> map) {
+		SqlSession session = factory.openSession(true);
+		return session.insert(NS + "insertProcess", map);
 	}
 	
 }

@@ -40,16 +40,11 @@
 <!-- 				</select> --> 
 
 			<select name="teach">
-					<c:choose>
-						<c:when test="${d.getTeach_conf()} eq 'Y'">
-							<option value="Y" selected>Y</option>
-							<option value="N">N</option>
-						</c:when>
-						<c:otherwise>
-							<option value="N" selected>N</option>
-							<option value="Y">Y</option>
-						</c:otherwise>
-					</c:choose>
+						
+							<option value="Y" ${d.getTeach_conf() eq 'Y' ?"selected":""}>Y</option>
+							<option value="N" ${d.getTeach_conf() eq 'N' ?"selected":""}>N</option>
+					
+						
 			</select>
 			</td>
 			<td>
@@ -57,17 +52,9 @@
 <%-- 					<option value="Y" ${d.getStu_conf().equalsIgnoreCase('Y')?"selected":"" }>Y</option> --%>
 <%-- 					<option value="N" ${d.getStu_conf().equalsIgnoreCase('N')?"selected":"" }>N</option> --%>
 <!-- 				</select> -->
-				<select>
-					<c:choose>
-						<c:when test="${d.getStu_conf() eq 'Y'}">
-							<option value="Y" selected>Y</option>
-							<option value="N">N</option>
-						</c:when>
-						<c:otherwise>
-							<option value="N" selected>N</option>
-							<option value="Y">Y</option>
-						</c:otherwise>
-					</c:choose>
+				<select name="student">
+							<option value="Y" ${d.getStu_conf() eq 'Y' ?"selected":""}>Y</option>
+							<option value="N" ${d.getStu_conf() eq 'N' ?"selected":""}>N</option>
 			</select>
 			</td>
 			<td>
@@ -75,17 +62,9 @@
 <%-- 					<option value="Y" ${d.getConfirm().equalsIgnoreCase('Y')?"selected":"" }>Y</option> --%>
 <%-- 					<option value="N" ${d.getConfirm().equalsIgnoreCase('N')?"selected":"" }>N</option> --%>
 <!-- 				</select> -->
-				<select>
-					<c:choose>
-						<c:when test="${d.getConfirm() eq 'Y'}">
-							<option value="Y" selected>Y</option>
-							<option value="N">N</option>
-						</c:when>
-						<c:otherwise>
-							<option value="N" selected>N</option>
-							<option value="Y">Y</option>
-						</c:otherwise>
-					</c:choose>
+				<select name="confirm">
+							<option value="Y" ${d.getConfirm() eq 'Y' ?"selected":""}>Y</option>
+							<option value="N" ${d.getConfirm() eq 'N' ?"selected":""}>N</option>
 			</select>
 			</td>
 			<td>

@@ -18,6 +18,12 @@
 		TEACH_NAME, TEACH_PHONE
 		FROM TEACHER
 	</select>
+	
+	<select id="selectTeacher" resultType="LoginDto">
+		SELECT TEACH_ID, TEACH_NAME
+		FROM TEACHER
+		WHERE TEACH_NAME= #{teach_name}
+	</select>
 
 	<insert id="InsertTeacher" parameterType="LoginDto">
 		INSERT INTO TEACHER
