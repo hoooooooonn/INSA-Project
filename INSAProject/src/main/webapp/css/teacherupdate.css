@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 100%;
+}
+
+.table4 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table4 th, .table4 td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table4 thead {
+    background-color: #3479db;
+    color: white;
+}
+
+.table4 tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table4 td input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border: 2px solid #3479db;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.table4 td input[type="text"]:focus {
+    border-color: #ff9900;
+}
+
+.table4 td input[readonly] {
+    background-color: #f0f0f0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+.btn-reset {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #e0a800;
+}
+
+.btn-back {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+.btn-danger {
+    background-color: #fc3700;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #bf2c04;
+}
+

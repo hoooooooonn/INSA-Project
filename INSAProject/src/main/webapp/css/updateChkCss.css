@@ -1,0 +1,167 @@
+/* Body 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 전체를 차지하도록 설정 */
+}
+
+/* 전체 컨테이너 */
+form {
+    width: 80%; /* 너비를 80%로 설정 */
+    max-width: 1200px; /* 최대 너비 1200px로 설정 (너무 넓어지지 않도록 제한) */
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* 제목 스타일 */
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* 제목 중앙 정렬 */
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%; /* 테이블 너비를 100%로 설정 */
+    margin: 0 auto 20px auto; /* 테이블 중앙 정렬 */
+    border-collapse: collapse; /* 테이블 경계선 겹침 방지 */
+}
+
+/* 테이블 셀 스타일 */
+table td {
+    padding: 15px; /* 셀 간격을 넓혀서 여유롭게 만들기 */
+    vertical-align: middle;
+    text-align: center; /* 모든 셀 내용 중앙 정렬 */
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 200px;
+    margin-right: 10px;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #3479db;
+    box-shadow: 0 0 5px rgba(52, 121, 219, 0.5);
+}
+
+/* 버튼 공통 스타일 */
+input[type="button"], input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    display: inline-block; /* 버튼을 가로로 나란히 배치 */
+    margin-right: 10px;
+}
+
+/* 수정 버튼(수정) 스타일 */
+input[type="submit"] {
+    background-color: #3479db;
+    color: white;
+    width: 48%;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff9900;
+}
+
+/* 삭제 버튼 스타일 */
+input[type="button"] {
+    background-color: #ff4c4c; /* 빨간색 배경 */
+    color: white;
+    width: 48%; /* 두 버튼이 나란히 배치되도록 크기 조정 */
+}
+
+input[type="button"]:hover {
+    background-color: #ff1a1a; /* 취소 버튼 호버시 어두운 빨간색 */
+}
+
+/* 숨겨진 학생 및 강사 ID 필드 */
+input[type="hidden"] {
+    display: none;
+}
+
+/* 수업 목록에 대한 스타일 */
+select[name="lec"], select[name="days"], select[name="clock"] {
+    width: 220px;
+    margin-right: 10px;
+}
+
+/* 강조된 텍스트 스타일 */
+label {
+    font-weight: bold;
+}
+
+/* 테이블 헤더 스타일 */
+table tr td {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* 테이블 셀 스타일 */
+table tr td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* 수정 및 삭제 버튼 영역 */
+td input {
+    width: 48%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* 중앙 정렬 */
+form table {
+    margin: 0 auto;
+}
+
+
+/* 버튼 공통 스타일 */
+input[type="submit"], input[type="button"] {
+    font-size: 14px; /* 글자 크기 */
+    padding: 4px 8px; /* 버튼 패딩 (크기 조정) */
+    border: none; /* 테두리 제거 */
+    border-radius: 20px; /* 둥근 모서리 */
+    cursor: pointer; /* 커서 스타일 */
+    transition: background-color 0.3s ease; /* 버튼 배경색 변경 애니메이션 */
+}
+
+/* 수정 버튼 스타일 */
+.btn-submit {
+    background-color: #4CAF50; /* 녹색 */
+    color: white; /* 글자 색 */
+    margin-right: 10px; /* 버튼 간격 */
+}
+
+.btn-submit:hover {
+    background-color: #45a049; /* 호버 시 색상 변경 */
+}
+
+/* 삭제 버튼 스타일 */
+.btn-delete {
+    background-color: #f44336; /* 빨간색 */
+    color: white; /* 글자 색 */
+}
+
+.btn-delete:hover {
+    background-color: #da190b; /* 호버 시 색상 변경 */
+}
