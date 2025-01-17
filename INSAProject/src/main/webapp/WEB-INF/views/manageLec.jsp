@@ -77,25 +77,6 @@
 					<td>수정</td>
 				</tr>
 			</thead>
-<%-- 			<% --%>
-<!--      	for (EduDto dto : lists) { -->
-<%--     	%> --%>
-<!-- 			<tr> -->
-<%-- 				<td><%=dto.getSeq() %></td> --%>
-<%-- 				<td><%=dto.getLec_name() %></td> --%>
-<%-- 				<td><%=dto.getTeach_name() %></td> --%>
-<%-- 				<td><%=dto.getStu_name() %></td> --%>
-<%-- 				<td><%=dto.getLec_cnt() %></td> --%>
-<%-- 				<td><%=dto.getTeach_conf() %></td> --%>
-<%-- 				<td><%=dto.getStu_conf() %></td> --%>
-<%-- 				<td><%=dto.getConfirm() %></td> --%>
-<!-- 				<td> -->
-<!-- 					<button type="button">수정</button> -->
-<!-- 				</td> -->
-<!-- 			</tr> -->
-<%-- 			<% --%>
-<!--  			} -->
-<%-- 		%> --%>
 
 			<c:forEach var="d" items="${lists}" varStatus="vs">
 				<tr>

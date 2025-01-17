@@ -77,6 +77,18 @@ public class mainpageServlet extends HttpServlet {
 	                req.setAttribute("error", "데이터를 가져오는 중 오류가 발생했습니다.");
 	            }
 
+	            
+	            log.info("search : {}",search);
+	            
+	            map.put("search", search);
+	            map.put("role1", role1);
+	            map.put("role2", role2);
+	            List<EduDto> lists = EduManagedao.getAllCheck(null);
+	            
+	            req.setAttribute("lists", lists);
+
+
+
 	            req.setAttribute("dto", logindto);
 	            req.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(req, resp);
 
