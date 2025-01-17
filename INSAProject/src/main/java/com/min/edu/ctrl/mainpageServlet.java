@@ -78,11 +78,11 @@ public class mainpageServlet extends HttpServlet {
 	            }
 
 	            
-	            log.info("search : {}",search);
-	            
-	            map.put("search", search);
-	            map.put("role1", role1);
-	            map.put("role2", role2);
+//	            log.info("search : {}",search);
+//	            
+//	            map.put("search", search);
+//	            map.put("role1", role1);
+//	            map.put("role2", role2);
 	            List<EduDto> lists = EduManagedao.getAllCheck(null);
 	            
 	            req.setAttribute("lists", lists);
