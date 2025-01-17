@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.EduManageDaoImpl">
+
+<select id="getAllProcess" resultType="EduDto">
+SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME, DAY, HOUR
+  FROM TEACHER t JOIN TEACHNR t2 
+  USING(TEACH_ID) JOIN LECTURE l 
+  USING (LEC_CODE) JOIN PROCESS p 
+  USING (LEC_CODE) JOIN LECCHECK l 
+  USING (SEQ) JOIN STUDENT i
+  USING (STU_ID)
+  WHERE LEC_CNT = 1
+</select>
+
+<select id="getProcessInfo" resultType="EduDto">
+
+SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME , LEC_CNT, TEACH_CONF , STU_CONF
+  FROM TEACHER t JOIN TEACHNR t2 
+  USING(TEACH_ID) JOIN LECTURE
+  USING (LEC_CODE) JOIN PROCESS p 
+  USING (LEC_CODE) JOIN LECCHECK
+  USING (SEQ) JOIN STUDENT s
+  USING (STU_ID)
+  WHERE STU_NAME = #{stu_name}
+  
+</select>
+
+<update id="updateConf">
+
+UPDATE LECCHECK
+SET TEACH_CONF= #{teach_conf}, STU_CONF= #{stu_conf}, CONFIRM=#{confirm}
+WHERE SEQ=#{seq}
+</update>
+
+<select id="getNotConfirm" resultType="EduDto">
+SELECT SEQ, STU_NAME , LEC_NAME, DAY, HOUR, STU_CONF, TEACH_CONF, CONFIRM
+  FROM LECCHECK l JOIN PROCESS p 
+  USING(SEQ) JOIN STUDENT i
+  USING (STU_ID) JOIN LECTURE l2 
+  USING (LEC_CODE)
+  WHERE CONFIRM = 'N' AND STU_NAME = #{stu_name}
+</select>
+
+<select id="getAllPay" resultType="EduDto">
+	 SELECT SEQ, STU_NAME , AMOUNT, PAYER, PAY_INFO, REG_TYPE , PAY_DATE
+		  FROM STUDENT i JOIN PAY p 
+		  USING(STU_ID)
+</select>
+
+<select id="getPayInfo" resultType="EduDto">
+SELECT SEQ, STU_NAME , AMOUNT, PAYER, PAY_INFO, REG_TYPE , PAY_DATE
+  FROM STUDENT s JOIN PAY p 
+  USING(STU_ID)
+  WHERE STU_NAME = #{stu_name}
+
+
+</select>
+
+
+<select id="getAllCheck" resultType="EduDto">
+SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME, LEC_CNT , TEACH_CONF, STU_CONF, CONFIRM
+  FROM TEACHER t JOIN TEACHNR t2 
+  USING(TEACH_ID) JOIN LECTURE l 
+  USING (LEC_CODE) JOIN PROCESS p 
+  USING (LEC_CODE) JOIN LECCHECK l 
+  USING (SEQ) JOIN STUDENT s
+  USING (STU_ID)
+  ORDER BY SEQ DESC
+  <where>
+	  <if test="search != null and search != ''">
+	  		<choose>
+	  			<when test="role2 == '학생'">
+	  			STU_NAME = #{search}	
+	  			</when>
+	  			<when test="role2 == '강사'">
+	  			TEACH_NAME = #{search}	
+	  			</when>
+	  			<otherwise>
+	  			STU_NAME = #{search} OR TEACH_NAME = #{search}
+	  			</otherwise>
+	  		</choose>
+			
+	  </if>
+	  
+	  <trim prefix="AND" prefixOverrides="AND">
+			<if test="role1 != null">
+				AND TRIM(CONFIRM) = #{role1}
+			</if>
+		</trim>
+  </where>
+</select>
+
+<select id="getCheckInfo" resultType="EduDto">
+SELECT SEQ, LEC_NAME, TEACH_NAME, STU_NAME, LEC_CNT , TEACH_CONF, STU_CONF, CONFIRM
+  FROM TEACHER t JOIN TEACHNR t2 
+  USING(TEACH_ID) JOIN LECTURE l 
+  USING (LEC_CODE) JOIN PROCESS p 
+  USING (LEC_CODE) JOIN LECCHECK l 
+  USING (SEQ) JOIN STUDENT s
+  USING (STU_ID)
+  WHERE SEQ= #{seq}
+
+</select>
+
+<delete id="DelCheck">
+DELETE FROM LECCHECK
+WHERE SEQ=#{seq}
+</delete>
+
+<insert id="insertProcess" >
+INSERT ALL
+INTO PROCESS (SEQ, LEC_CODE, STU_ID, "DAY", "HOUR", LEC_CNT) VALUES((SELECT MAX(SEQ)+1 FROM PROCESS p), #{lec_code},#{stu_id},#{day} ,#{hour}, 1)
+INTO PROCESS (SEQ, LEC_CODE, STU_ID, "DAY", "HOUR", LEC_CNT) VALUES((SELECT MAX(SEQ)+2 FROM PROCESS p), #{lec_code},#{stu_id},#{day} ,#{hour}, 2)
+INTO PROCESS (SEQ, LEC_CODE, STU_ID, "DAY", "HOUR", LEC_CNT) VALUES((SELECT MAX(SEQ)+3 FROM PROCESS p), #{lec_code},#{stu_id},#{day} ,#{hour}, 3)
+INTO PROCESS (SEQ, LEC_CODE, STU_ID, "DAY", "HOUR", LEC_CNT) VALUES((SELECT MAX(SEQ)+4 FROM PROCESS p), #{lec_code},#{stu_id},#{day} ,#{hour}, 4)
+INTO LECCHECK (SEQ, TEACH_CONF, STU_CONF, CONFIRM) VALUES((SELECT MAX(SEQ)+1 FROM PROCESS p), 'N', 'N', 'N')
+INTO LECCHECK (SEQ, TEACH_CONF, STU_CONF, CONFIRM) VALUES((SELECT MAX(SEQ)+2 FROM PROCESS p), 'N', 'N', 'N')
+INTO LECCHECK (SEQ, TEACH_CONF, STU_CONF, CONFIRM) VALUES((SELECT MAX(SEQ)+3 FROM PROCESS p), 'N', 'N', 'N')
+INTO LECCHECK (SEQ, TEACH_CONF, STU_CONF, CONFIRM) VALUES((SELECT MAX(SEQ)+4 FROM PROCESS p), 'N', 'N', 'N')
+SELECT * FROM DUAL
+</insert>
+
+
+</mapper>

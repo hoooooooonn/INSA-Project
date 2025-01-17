@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.StudentDaoImpl">
+		
+<!-- 학생전체조회 selectAllStudents -->
+<select id="selectAllStudents" resultType="com.min.edu.dto.EduDto">
+    SELECT STU_ID, STU_NAME, STU_PHONE, GEN, AGE, PREF, NOTE
+    FROM STUDENT
+</select>
+
+<!-- 학생상세조회(ID) selectStudentById -->
+<select id="selectStudentById" parameterType="Integer" resultType="com.min.edu.dto.EduDto">
+    SELECT STU_ID, STU_NAME, STU_PHONE, GEN, AGE, PREF, NOTE
+    FROM STUDENT
+    WHERE STU_ID = #{stu_id}
+</select>
+
+<!-- 학생상세조회(이름) selectStudentByName -->
+<select id="selectStudentByName"  resultType="com.min.edu.dto.EduDto">
+    SELECT STU_ID, STU_NAME, AGE
+    FROM STUDENT
+    WHERE STU_NAME = #{stu_name}
+</select>
+
+<!-- 학생정보수정 updateStudent -->
+<update id="updateStudent">
+    UPDATE STUDENT
+   <set>  
+         <if test="stu_name != null and stu_name != ''">STU_NAME = #{stu_name},</if>
+         <if test="stu_phone != null and stu_phone != ''">STU_PHONE = #{stu_phone},</if>
+         <if test="gen != null and gen != ''">GEN = #{gen},</if>
+         <if test="age != null and age != ''">AGE = #{age},</if>
+        PREF = #{pref},
+        NOTE = #{note}
+     </set>
+    WHERE STU_ID = #{stu_id}
+</update>
+
+<!-- 학생정보등록 insertStudent -->
+<insert id="insertStudent" parameterType="EduDto">
+    INSERT INTO STUDENT (STU_ID, STU_NAME, STU_PHONE, GEN, AGE, PREF, NOTE)
+    VALUES (STUDENT_SEQ.NEXTVAL, #{stu_name}, #{stu_phone}, #{gen}, #{age}, #{pref}, #{note})
+</insert>
+
+
+	
+</mapper>

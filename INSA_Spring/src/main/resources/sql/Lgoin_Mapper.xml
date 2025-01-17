@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.edu.model.LoginDaoImpl">
+
+	<select id="getLogin" resultType="EduDto">
+
+		SELECT TEACH_ID, TEACH_NAME,
+		TEACH_PHONE
+		FROM TEACHER
+		WHERE TEACH_NAME =#{ id }
+		AND
+		SUBSTR(TEACH_PHONE,-4)=#{ pw }
+
+	</select>
+
+	<select id="AllTeacherList" resultType="EduDto">
+		SELECT TEACH_ID,
+		TEACH_NAME, TEACH_PHONE
+		FROM TEACHER
+	</select>
+	
+	<select id="selectTeacher" resultType="EduDto">
+		SELECT TEACH_ID, TEACH_NAME
+		FROM TEACHER
+		WHERE TEACH_NAME= #{teach_name}
+	</select>
+
+	<insert id="InsertTeacher" parameterType="EduDto">
+		INSERT INTO TEACHER
+		(TEACH_ID, TEACH_NAME, TEACH_PHONE)
+		VALUES(#{ teach_id },#{ teach_name
+		},#{ teach_phone })
+	</insert>
+
+	<!-- 사용자 상세정보 getUserInfo -->
+	<select id="getUserInfo" resultType="EduDto">
+		SELECT TEACH_ID,
+		TEACH_NAME,
+		TEACH_PHONE
+		FROM TEACHER
+		WHERE TEACH_ID=#{teach_id}
+	</select>
+
+	<!-- 사용자 정보 수정 updateUserInfo -->
+	<insert id="updateTeacher">
+		UPDATE TEACHER
+		<set> <!-- 프리픽스오버라이딩 set~!!! -->
+			<!-- mybatis는 or/and절을 사용해서 해야한다. -->
+			<if test="teach_name != null and teach_name !=''">TEACH_NAME =#{teach_name},</if> <!-- null이 아니고 빈값이 아닐때~ -->
+			<if test="teach_phone != null and teach_phone !=''">TEACH_PHONE =#{teach_phone},</if>
+			<!-- <if test="email != null">EMAIL =#{email},</if> -->
+		</set>
+		WHERE TEACH_ID=#{teach_id}
+	</insert>
+
+
+	<delete id="delTeacher">
+		DELETE FROM TEACHER
+		WHERE TEACH_ID=#{id}
+
+	</delete>
+
+	<!-- 아이디 검색 -->
+	<select id="searchId" resultType="EduDto">
+    SELECT TEACH_ID, TEACH_NAME, TEACH_PHONE
+    FROM TEACHER
+    WHERE TEACH_ID LIKE '%'||#{search}||'%'
+	</select>
+
+	<!-- 이름 검색 -->
+	<select id="searchName" resultType="EduDto">
+		SELECT TEACH_ID,
+		TEACH_NAME,
+		TEACH_PHONE
+		FROM TEACHER
+		WHERE TEACH_NAME LIKE '%'||#{search}||'%'
+	</select>
+	<!-- 폰번호 검색 -->
+	<select id="searchPhone" resultType="EduDto">
+		SELECT TEACH_ID,
+		TEACH_NAME,
+		TEACH_PHONE
+		FROM TEACHER
+		WHERE TEACH_PHONE LIKE '%'||#{search}||'%'
+	</select>
+
+</mapper>
