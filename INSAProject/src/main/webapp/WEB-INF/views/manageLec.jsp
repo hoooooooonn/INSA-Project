@@ -5,13 +5,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ include file="./header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>수업관리</title>
 
+<title>수업관리</title>
+<link rel="stylesheet" href="./css/manageLecCss.css">
 <style>
 .table4 {
 	width: 100%;
@@ -32,26 +34,32 @@
 </head>
 <body>
 <form action="./manageLec.do" method="post">
-		<h1>수업관리</h1>
 		<table>
+				
 			<tr>
 				<td>
+				<h1>수업관리</h1>
+				</td>
+					<td>
 				<select name="role1">
 						<option value="">전체</option>
 						<option value="Y">완료</option>
 						<option value="N">미완료</option>
 				</select>
-				</td>
-				<td>
+<!-- 				</td> -->
+<!-- 				<td> -->
 				<select name="role2">
 						<option>전체</option>
 						<option value="학생">학생</option>
 						<option value="강사">강사</option>
 				</select>
-				</td>
-				<td><input type="text" name="search"><input type="submit" value="검색"></td>
-				<td>
-					<a href="./insertLec.do"><input type="button" value="추가"></a>
+<!-- 				</td> -->
+<!-- 				<td> -->
+					<input type="text" name="search"><input type="submit" value="검색">
+<!-- 				</td> -->
+<!-- 				<td> -->
+					<a href="./insertLec.do"><input type="button" value="추가" style="background-color: #2ee8e8"></a>
+					<button style="text-align: center;" id="backButton" type="button">이전화면이동</button>
 				</td>
 			</tr>
 		</table>
@@ -66,6 +74,7 @@
 					<td>강사확인</td>
 					<td>학생확인</td>
 					<td>최종확인</td>
+					<td>수정</td>
 				</tr>
 			</thead>
 
@@ -87,11 +96,11 @@
 			</c:forEach>
 
 			<tfoot>
-	<tr>
-		<th colspan="8">
-			<button id="backButton" type="button">이전화면이동</button>
-		</th>
-	</tr>
+<!-- 	<tr> -->
+<!-- 		<th colspan="8"> -->
+<!-- 			<button id="backButton" type="button">이전화면이동</button> -->
+<!-- 		</th> -->
+<!-- 	</tr> -->
 </tfoot>
 		</table>
 </form>

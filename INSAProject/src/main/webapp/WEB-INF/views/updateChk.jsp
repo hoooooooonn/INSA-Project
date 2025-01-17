@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>수업확인 수정</title>
+<link rel="stylesheet" href="./css/updateChkCss.css">
 <c:set var="d" value="${dto}"/>
 </head>
 
@@ -51,12 +52,16 @@
 							<option value="N" ${d.getConfirm() eq 'N' ?"selected":""}>N</option>
 			</select>
 			</td>
-			<td>
-				<input type="submit" value="수정">
-				<input type="button" value="삭제" onclick="delCheck()">
-			</td>
+<!-- 			<td> -->
+<!-- 				<input type="submit" value="수정"> -->
+<!-- 				<input type="button" value="삭제" onclick="delCheck()"> -->
+<!-- 			</td> -->
 		</tr>
 	</table>
+	<div style="text-align: center; margin-top: 20px;">
+		<input type="submit" value="수정" class="btn-submit">
+		<input type="button" value="삭제" onclick="delCheck()" class="btn-delete">
+	</div>
 	</form>
 </body>
 <script type="text/javascript">
