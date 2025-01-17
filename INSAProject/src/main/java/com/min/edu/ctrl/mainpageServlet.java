@@ -60,7 +60,7 @@ public class mainpageServlet extends HttpServlet {
 	            map.put("search", search);
 	            map.put("role1", role1);
 	            map.put("role2", role2);
-	            List<EduDto> lists = EduManagedao.getAllCheck(map);
+	            List<EduDto> lists = EduManagedao.getAllCheck(null);
 	            
 	            req.setAttribute("lists", lists);
 	            req.setAttribute("dto", logindto);

@@ -34,34 +34,18 @@
 			<td>${d.getStu_name()}</td>
 			<td>${d.getLec_cnt()}</td>
 			<td>
-<!-- 				<select> -->
-<%-- 					<option value="Y" ${d.getTeach_conf().equalsIgnoreCase('Y')?"selected":""}>Y</option> --%>
-<%-- 					<option value="N" ${d.getTeach_conf().equalsIgnoreCase('N')?"selected":""}>N</option> --%>
-<!-- 				</select> --> 
-
 			<select name="teach">
-						
 							<option value="Y" ${d.getTeach_conf() eq 'Y' ?"selected":""}>Y</option>
 							<option value="N" ${d.getTeach_conf() eq 'N' ?"selected":""}>N</option>
-					
-						
 			</select>
 			</td>
 			<td>
-<!-- 				<select> -->
-<%-- 					<option value="Y" ${d.getStu_conf().equalsIgnoreCase('Y')?"selected":"" }>Y</option> --%>
-<%-- 					<option value="N" ${d.getStu_conf().equalsIgnoreCase('N')?"selected":"" }>N</option> --%>
-<!-- 				</select> -->
 				<select name="student">
 							<option value="Y" ${d.getStu_conf() eq 'Y' ?"selected":""}>Y</option>
 							<option value="N" ${d.getStu_conf() eq 'N' ?"selected":""}>N</option>
 			</select>
 			</td>
 			<td>
-<!-- 				<select> -->
-<%-- 					<option value="Y" ${d.getConfirm().equalsIgnoreCase('Y')?"selected":"" }>Y</option> --%>
-<%-- 					<option value="N" ${d.getConfirm().equalsIgnoreCase('N')?"selected":"" }>N</option> --%>
-<!-- 				</select> -->
 				<select name="confirm">
 							<option value="Y" ${d.getConfirm() eq 'Y' ?"selected":""}>Y</option>
 							<option value="N" ${d.getConfirm() eq 'N' ?"selected":""}>N</option>
