@@ -15,7 +15,7 @@ public class LoginDaoImpl implements ILoginDao {
 
 	
 	private final SqlSessionTemplate session;
-	private final String NS = "com.min.edu.model.LoginDaoImpl.LoginDaoImpl.";
+	private final String NS = "com.min.edu.model.LoginDaoImpl.";
 	
 	@Override
 	public EduDto getLogin(Map<String, Object> map) {
