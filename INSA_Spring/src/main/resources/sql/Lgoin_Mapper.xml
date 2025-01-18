@@ -8,7 +8,7 @@
 		TEACH_PHONE
 		FROM TEACHER
 		WHERE TEACH_NAME =#{ id }
-		AND
+		AND0
 		SUBSTR(TEACH_PHONE,-4)=#{ pw }
 
 	</select>
