@@ -1,5 +1,6 @@
 package com.min.edu.ctrl;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,20 +42,25 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/loginServlet.do")
-	public String setLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public String setLogin(HttpServletRequest request,HttpServletResponse response, HttpSession session) throws IOException {
 		log.info("UserController loginForm 로그인 진행");
-
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("id", id);
-		map.put("pw", pw);
+		response.setContentType("text/html; charset=UTF-8");
+		
+		Map<String, Object> map = Map.of("id",request.getParameter("id"),"pw",request.getParameter("pw"));
 		log.info("전달받은 요청 값 map :" + map);
+		
 		EduDto logindto = service.getLogin(map);
 		log.info("전달받은 요청 값 logindto :" + logindto);
-		session.setAttribute("dto", logindto);
-		return "redirect:/mainpageServlet.do";
+		if(logindto != null) {
+			log.info("로그인 성공");
+			session.setAttribute("dto", logindto);
+			return "redirect:/mainpageServlet.do";
+		}else {
+			response.getWriter().print("<script>alert('로그인 정보가 없습니다.');location.href='./loginServlet.do';</script>");
+		}
+		
+		
+		return null;
 	}
 
 	@GetMapping(value = "/mainpageServlet.do")
